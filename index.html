@@ -1,0 +1,1340 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>異地也能守護到位！遠距照顧這樣做好安心</title>
+<style>
+:root{
+  --cream:#FBF4EA;
+  --cream2:#F6E9D8;
+  --peach:#F7C9A8;
+  --coral:#E8845C;
+  --coral-deep:#D26A43;
+  --warm-brown:#5C4630;
+  --warm-brown2:#8A6F52;
+  --sage:#8FB08A;
+  --sage-deep:#5E8A66;
+  --sky:#7FB1C9;
+  --gold:#E7B14C;
+  --card:#FFFDF9;
+  --shadow:rgba(124,90,52,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",-apple-system,sans-serif;
+  color:var(--warm-brown);
+  background:var(--cream);
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+
+/* ---------- progress + nav ---------- */
+#progress{
+  position:fixed;top:0;left:0;height:5px;width:0;
+  background:linear-gradient(90deg,var(--coral),var(--gold));
+  z-index:200;transition:width .2s;
+}
+#topbar{
+  position:fixed;top:0;left:0;right:0;height:58px;z-index:150;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;background:rgba(251,244,234,.92);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--cream2);
+}
+#topbar .brand{font-weight:800;color:var(--coral-deep);font-size:15px;letter-spacing:.5px}
+#topbar .brand span{color:var(--warm-brown2);font-weight:600;font-size:12px}
+.mode-toggle{display:flex;gap:6px}
+.mode-toggle button{
+  border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:13px;
+  padding:7px 14px;border-radius:20px;background:var(--cream2);color:var(--warm-brown2);
+  transition:.2s;
+}
+.mode-toggle button.active{background:var(--coral);color:#fff;box-shadow:0 3px 8px var(--shadow)}
+
+/* ---------- section base ---------- */
+main{padding-top:58px}
+.slide{
+  max-width:920px;margin:0 auto;padding:54px 26px 64px;
+  scroll-margin-top:70px;
+}
+.slide-inner{
+  background:var(--card);border-radius:28px;padding:46px 42px;
+  box-shadow:0 14px 40px var(--shadow);
+  border:1px solid #fff;
+  position:relative;overflow:hidden;
+}
+.kicker{
+  display:inline-block;background:var(--cream2);color:var(--coral-deep);
+  font-weight:800;font-size:13px;letter-spacing:1px;padding:5px 14px;border-radius:14px;margin-bottom:18px;
+}
+h1{font-size:34px;line-height:1.4;color:var(--coral-deep);margin-bottom:14px;font-weight:900}
+h2{font-size:27px;line-height:1.45;color:var(--coral-deep);margin-bottom:18px;font-weight:900}
+h3{font-size:19px;color:var(--warm-brown);margin:18px 0 10px;font-weight:800}
+p{font-size:16.5px;margin-bottom:14px}
+.lead{font-size:18px;color:var(--warm-brown2)}
+.hl{color:var(--coral-deep);font-weight:800}
+.hl-sage{color:var(--sage-deep);font-weight:800}
+
+/* ---------- cover ---------- */
+#cover .slide-inner{
+  background:linear-gradient(150deg,#FBE6CF 0%,#F7C9A8 55%,#EFB089 100%);
+  text-align:center;padding:62px 40px;border:none;
+}
+#cover .sun{
+  width:120px;height:120px;margin:0 auto 22px;border-radius:50%;
+  background:radial-gradient(circle at 50% 45%,#FFE9A8,#F4B14C 70%);
+  box-shadow:0 0 0 14px rgba(255,255,255,.35),0 10px 30px rgba(210,106,67,.35);
+  position:relative;
+}
+#cover .sun::after{content:"🏡";font-size:52px;position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+#cover h1{color:#fff;font-size:40px;text-shadow:0 3px 12px rgba(160,80,40,.35)}
+#cover .sub{font-size:20px;color:#7a4a2c;font-weight:700;margin-bottom:26px}
+.speaker-chip{
+  display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.8);
+  padding:10px 20px;border-radius:30px;font-weight:800;color:var(--warm-brown);box-shadow:0 6px 18px rgba(160,80,40,.18);
+}
+.speaker-chip .dot{width:36px;height:36px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px}
+.sponsor{
+  margin-top:26px;font-size:14px;color:#85522f;font-weight:700;
+  background:rgba(255,255,255,.65);display:inline-block;padding:8px 18px;border-radius:18px;
+}
+.sponsor b{color:var(--coral-deep)}
+
+/* ---------- pain points ---------- */
+.pain-grid{display:grid;gap:16px;margin-top:8px}
+.pain{
+  display:flex;gap:16px;align-items:flex-start;background:var(--cream);
+  border-radius:18px;padding:18px 20px;border-left:6px solid var(--coral);
+}
+.pain .emo{font-size:30px;flex-shrink:0;line-height:1.2}
+.pain p{margin:0;font-size:16px}
+.empathy{
+  margin-top:24px;background:linear-gradient(135deg,#FDF1E2,#F7E2CC);
+  border-radius:20px;padding:24px 26px;font-size:17px;color:var(--warm-brown);font-weight:600;
+}
+.empathy strong{color:var(--coral-deep)}
+
+/* ---------- quiz ---------- */
+.quiz-intro{background:var(--cream);border-radius:18px;padding:18px 22px;margin-bottom:22px;font-weight:600}
+.q{
+  background:var(--cream);border-radius:18px;padding:18px 22px;margin-bottom:14px;
+  border:2px solid transparent;transition:.2s;cursor:pointer;display:flex;gap:14px;align-items:center;
+}
+.q:hover{border-color:var(--peach)}
+.q.checked{background:#FDEBDD;border-color:var(--coral)}
+.q .box{
+  width:30px;height:30px;border-radius:9px;border:2.5px solid var(--peach);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;transition:.2s;
+}
+.q.checked .box{background:var(--coral);border-color:var(--coral)}
+.q .qtext{font-size:16px;font-weight:600}
+.q2{
+  background:var(--cream);border-radius:18px;padding:16px 20px;margin-bottom:12px;
+  display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+}
+.q2 .qtext{font-size:16px;font-weight:600;flex:1;min-width:200px}
+.q2 .yn{display:flex;gap:8px;flex-shrink:0}
+.q2 .yn button{
+  border:2px solid var(--peach);background:#fff;cursor:pointer;font-family:inherit;font-weight:800;font-size:15px;
+  width:56px;padding:9px 0;border-radius:14px;color:var(--warm-brown2);transition:.18s;
+}
+.q2 .yn button:hover{border-color:var(--coral)}
+.q2 .yn button.sel-y{background:var(--coral);border-color:var(--coral);color:#fff}
+.q2 .yn button.sel-n{background:var(--sage-deep);border-color:var(--sage-deep);color:#fff}
+/* ---------- pre-course survey ---------- */
+.survey-q{background:var(--cream);border-radius:18px;padding:16px 20px;margin-bottom:14px}
+.survey-q h3{margin:0 0 10px;font-size:16.5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{
+  border:2px solid var(--peach);background:#fff;cursor:pointer;font-family:inherit;font-weight:700;font-size:14px;
+  padding:9px 16px;border-radius:22px;color:var(--warm-brown2);transition:.18s;
+}
+.chips button:hover{border-color:var(--coral)}
+.chips button.on{background:var(--coral);border-color:var(--coral);color:#fff}
+
+/* ---------- slido embeds ---------- */
+.slido-label{font-weight:800;color:var(--coral-deep);margin:18px 0 8px;font-size:16.5px}
+.slido-wrap{margin:0 0 8px;border-radius:16px;overflow:hidden;box-shadow:0 8px 20px var(--shadow);background:#fff;border:1px solid var(--cream2)}
+.slido-wrap iframe{width:100%;height:430px;border:0;display:block}
+
+/* ---------- knowledge check ---------- */
+.kq{background:var(--cream);border-radius:18px;padding:18px 22px;margin-bottom:14px}
+.kq-q{font-size:16.5px;font-weight:800;margin-bottom:12px;color:var(--warm-brown)}
+.kq-opts{display:grid;gap:8px}
+.kq-opts button{
+  text-align:left;border:2px solid var(--cream2);background:#fff;cursor:pointer;font-family:inherit;
+  font-size:15px;padding:11px 16px;border-radius:14px;color:var(--warm-brown);transition:.15s;font-weight:600;
+}
+.kq-opts button:hover{border-color:var(--peach)}
+.kq-opts button.correct{background:#E3F0E1;border-color:var(--sage-deep);color:var(--sage-deep);font-weight:800}
+.kq-opts button.wrong{background:#FBE0D0;border-color:var(--coral-deep);color:var(--coral-deep)}
+.kq-opts button:disabled{cursor:default}
+.kq-fb{display:none;margin-top:10px;background:#FBF1DF;border-radius:12px;padding:11px 16px;font-size:14px;color:var(--warm-brown);border-left:5px solid var(--gold)}
+.kq-fb.show{display:block}
+.kq-fb b{color:var(--coral-deep)}
+
+.quiz-result{
+  margin-top:24px;border-radius:20px;padding:26px;display:none;
+  background:linear-gradient(135deg,#FDF1E2,#F4E6D2);text-align:center;
+}
+.quiz-result.show{display:block;animation:pop .4s ease}
+@keyframes pop{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
+.quiz-result .score{font-size:40px;font-weight:900;color:var(--coral-deep)}
+.quiz-result .verdict{font-size:18px;font-weight:800;margin:6px 0}
+.btn{
+  border:none;cursor:pointer;font-family:inherit;font-weight:800;font-size:16px;
+  padding:13px 30px;border-radius:30px;background:var(--coral);color:#fff;
+  box-shadow:0 8px 20px var(--shadow);transition:.2s;margin-top:18px;
+}
+.btn:hover{background:var(--coral-deep);transform:translateY(-2px)}
+.btn.sage{background:var(--sage-deep)}
+
+/* ---------- tool cards ---------- */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:10px}
+.tool{
+  background:var(--cream);border-radius:20px;padding:22px 20px;text-align:center;border:1px solid var(--cream2);
+  transition:.25s;
+}
+.tool:hover{transform:translateY(-4px);box-shadow:0 12px 26px var(--shadow)}
+.tool .ic{font-size:38px;margin-bottom:8px}
+.tool h3{margin:6px 0;color:var(--coral-deep)}
+.tool p{font-size:14.5px;color:var(--warm-brown2);margin:0}
+
+/* ---------- tools detail ---------- */
+.dgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px}
+@media(max-width:560px){.dgrid{grid-template-columns:1fr}}
+.dcard{background:var(--cream);border-radius:18px;padding:20px;border-top:5px solid var(--coral)}
+.dcard:nth-child(2){border-top-color:var(--gold)}
+.dcard:nth-child(3){border-top-color:var(--sage)}
+.dcard:nth-child(4){border-top-color:var(--sky)}
+.dcard .dic{font-size:32px;margin-bottom:4px}
+.dcard h3{margin:4px 0 6px;color:var(--coral-deep);font-size:17px}
+.dcard p{font-size:14.5px;color:var(--warm-brown2);margin:0}
+.cmp{display:grid;gap:8px}
+.cmp-row{display:grid;grid-template-columns:1.1fr 1.4fr 1.8fr;gap:10px;background:var(--cream);border-radius:14px;padding:14px 16px;font-size:14.5px}
+.cmp-row.head{background:var(--cream2);font-weight:800;color:var(--warm-brown2);font-size:13.5px}
+.cmp-row b{color:var(--coral-deep)}
+.cmp-row .mini{display:block;font-size:12px;color:var(--sage-deep);font-weight:700;margin-top:3px}
+.cmp-row .thumb-img{width:100%;max-width:88px;height:auto;border-radius:8px;display:block;margin-bottom:6px;background:#fff;box-shadow:0 2px 6px var(--shadow)}
+.warn{display:block;margin-top:8px;color:var(--coral-deep);font-weight:700;font-size:14px}
+.subsidy{display:flex;gap:14px;background:#FBF1DF;border-radius:16px;padding:18px 20px;border-left:6px solid var(--gold);font-size:14.5px}
+.subsidy .sub-ic{font-size:28px;flex-shrink:0}
+.subsidy b{color:var(--coral-deep)}
+.mini2{display:block;margin-top:6px;font-size:12.5px;color:var(--warm-brown2)}
+.acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.acc{display:flex;gap:12px;background:var(--cream);border-radius:14px;padding:14px 16px;font-size:14px}
+.acc span{font-size:26px;flex-shrink:0}
+.acc b{color:var(--sage-deep)}
+@media(max-width:600px){
+  .cmp-row{grid-template-columns:1fr;gap:4px}
+  .cmp-row.head{display:none}
+  .acc-grid{grid-template-columns:1fr}
+}
+
+/* ---------- illustrations ---------- */
+.illus-wrap{text-align:center;margin:6px 0 18px}
+.illus{width:100%;max-width:460px;height:auto;display:block;margin:0 auto;border-radius:18px}
+.photo-fig{margin:2px auto 14px;max-width:300px;text-align:center}
+.photo-fig img{width:100%;border-radius:14px;box-shadow:0 6px 16px var(--shadow);background:#fff;display:block}
+.photo-cred{font-size:11px;color:var(--warm-brown2);margin-top:5px;line-height:1.5}
+.photo-cred a{color:var(--warm-brown2)}
+
+/* ---------- media (video + search links) ---------- */
+.media{margin-top:18px;background:var(--cream);border-radius:16px;padding:16px 18px;border:1px dashed var(--peach)}
+.media h4{font-size:15px;color:var(--coral-deep);margin-bottom:10px;font-weight:800;display:flex;align-items:center;gap:6px}
+.vid{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;margin-bottom:12px;background:#000;box-shadow:0 6px 16px var(--shadow)}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vcap{font-size:12.5px;color:var(--warm-brown2);margin:-6px 0 12px;text-align:center}
+.search-links{display:flex;flex-wrap:wrap;gap:8px}
+.search-links a{
+  text-decoration:none;font-weight:700;font-size:13.5px;padding:8px 15px;border-radius:20px;
+  background:#fff;border:1.5px solid var(--peach);color:var(--coral-deep);transition:.18s;
+}
+.search-links a:hover{background:var(--coral);color:#fff;border-color:var(--coral)}
+.search-links a.yt{border-color:#e0a0a0;color:#c0392b}
+.search-links a.yt:hover{background:#c0392b;color:#fff;border-color:#c0392b}
+
+/* ---------- partner resources ---------- */
+.partner-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+.partner{background:var(--cream);border-radius:18px;padding:20px 22px;border-top:6px solid var(--coral)}
+.partner.sage{border-top-color:var(--sage-deep)}
+.partner h3{margin:6px 0 10px;color:var(--coral-deep);font-size:18px}
+.partner.sage h3{color:var(--sage-deep)}
+.ptag{display:inline-block;background:var(--cream2);color:var(--warm-brown2);font-size:12px;font-weight:800;padding:4px 12px;border-radius:12px}
+.plist{list-style:none;margin:0}
+.plist li{position:relative;padding:7px 0 7px 22px;font-size:14.5px}
+.plist li::before{content:"›";position:absolute;left:4px;top:6px;color:var(--coral);font-weight:900;font-size:17px}
+.partner.sage .plist li::before{color:var(--sage-deep)}
+.plist b{color:var(--warm-brown)}
+.reslinks{margin-top:16px;background:#FBF1DF;border-radius:14px;padding:14px 18px;font-size:14.5px;border-left:6px solid var(--gold)}
+.reslinks b{color:var(--coral-deep)}
+@media(max-width:600px){.partner-grid{grid-template-columns:1fr}}
+
+/* ---------- subsidy ---------- */
+.news{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#FDF1E2,#F6E2C8);border-radius:18px;padding:20px 22px;margin:6px 0 8px;font-size:16px}
+.news-badge{background:var(--coral);color:#fff;font-weight:900;font-size:14px;padding:8px 14px;border-radius:14px;flex-shrink:0;text-align:center;box-shadow:0 6px 14px var(--shadow)}
+.warn-box{margin-top:16px;background:#FBEFE7;border-radius:14px;padding:14px 18px;font-size:14px;color:var(--coral-deep);font-weight:600;border-left:6px solid var(--coral)}
+
+/* ---------- comparison table ---------- */
+.filter-row{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}
+.filter-row button{
+  border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:14px;
+  padding:8px 16px;border-radius:20px;background:var(--cream2);color:var(--warm-brown2);transition:.2s;
+}
+.filter-row button.active{background:var(--sage-deep);color:#fff}
+.ctable{width:100%;border-collapse:separate;border-spacing:0 8px}
+.ctable th{text-align:left;font-size:14px;color:var(--warm-brown2);padding:6px 12px}
+.ctable td{background:var(--cream);padding:14px 12px;font-size:14.5px;vertical-align:top}
+.ctable tr td:first-child{border-radius:14px 0 0 14px;font-weight:800;color:var(--coral-deep)}
+.ctable tr td:last-child{border-radius:0 14px 14px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;background:var(--cream2);color:var(--warm-brown2);margin:2px}
+.tag.s{background:#E3F0E1;color:var(--sage-deep)}
+.tag.c{background:#FBE0D0;color:var(--coral-deep)}
+.hide{display:none}
+
+/* ---------- scenario accordion ---------- */
+.case{background:var(--cream);border-radius:20px;margin-bottom:14px;overflow:hidden;border:1px solid var(--cream2)}
+.case-head{padding:20px 24px;cursor:pointer;display:flex;align-items:center;gap:16px;font-weight:800;font-size:17px}
+.case-head .emo{font-size:30px}
+.case-head .chev{margin-left:auto;color:var(--coral);font-size:20px;transition:.3s}
+.case.open .chev{transform:rotate(180deg)}
+.case-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.case.open .case-body{max-height:700px}
+.case-body-inner{padding:0 24px 24px}
+.flow{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.flow-step{display:flex;gap:12px;align-items:flex-start}
+.flow-step .num{
+  width:26px;height:26px;border-radius:50%;background:var(--coral);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;
+}
+.flow-step.local .num{background:var(--sage-deep)}
+.flow-step p{margin:0;font-size:15px}
+.combo-note{margin-top:14px;background:#E9F2E6;border-radius:14px;padding:14px 18px;font-size:14.5px;color:var(--sage-deep);font-weight:700}
+
+/* ---------- checklist ---------- */
+.chk-intro{margin-bottom:16px}
+.chk-group{margin-bottom:22px}
+.chk-group h3{display:flex;align-items:center;gap:8px}
+.chk{
+  display:flex;gap:14px;align-items:center;background:var(--cream);border-radius:14px;
+  padding:13px 18px;margin-bottom:9px;cursor:pointer;transition:.2s;border:2px solid transparent;
+}
+.chk:hover{border-color:var(--peach)}
+.chk.done{background:#E9F2E6;border-color:var(--sage)}
+.chk .tick{
+  width:26px;height:26px;border-radius:8px;border:2.5px solid var(--sage);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;transition:.2s;
+}
+.chk.done .tick{background:var(--sage-deep);border-color:var(--sage-deep)}
+.chk .ctext{font-size:15.5px;font-weight:600}
+.chk.done .ctext{text-decoration:line-through;color:var(--warm-brown2)}
+.chk-bar{height:14px;background:var(--cream2);border-radius:10px;overflow:hidden;margin:18px 0 6px}
+.chk-bar div{height:100%;width:0;background:linear-gradient(90deg,var(--sage),var(--sage-deep));transition:.4s}
+.chk-count{text-align:center;font-weight:800;color:var(--sage-deep)}
+
+/* ---------- key takeaways ---------- */
+.takeaway{display:grid;gap:14px;margin-top:10px}
+.takeaway div{background:var(--cream);border-radius:16px;padding:16px 20px;font-size:16px;font-weight:600;border-left:6px solid var(--gold)}
+.takeaway div b{color:var(--coral-deep)}
+.thanks{
+  margin-top:28px;background:linear-gradient(135deg,#FDF1E2,#F7E2CC);border-radius:22px;
+  padding:28px;text-align:center;
+}
+.thanks h2{font-size:23px}
+.thanks .logo{font-size:34px;margin-bottom:6px}
+
+/* ---------- prep box ---------- */
+.prep{background:var(--cream);border-radius:18px;padding:20px 24px;margin-top:8px}
+.prep ul{list-style:none}
+.prep li{padding:8px 0 8px 30px;position:relative;font-size:15.5px}
+.prep li::before{content:"✔";position:absolute;left:0;color:var(--sage-deep);font-weight:900}
+
+/* ---------- slide footer dots ---------- */
+.foot{text-align:center;color:var(--warm-brown2);font-size:13px;margin-top:30px;opacity:.8}
+
+/* ---------- deck mode ---------- */
+body.deck main{padding-top:58px}
+body.deck .slide{display:none;min-height:calc(100vh - 58px);padding-top:30px;padding-bottom:90px}
+body.deck .slide.current{display:block;animation:fade .4s ease}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+#deck-nav{
+  display:none;position:fixed;bottom:0;left:0;right:0;height:64px;z-index:150;
+  align-items:center;justify-content:center;gap:18px;
+  background:rgba(251,244,234,.94);backdrop-filter:blur(8px);border-top:1px solid var(--cream2);
+}
+body.deck #deck-nav{display:flex}
+#deck-nav button{
+  border:none;cursor:pointer;font-family:inherit;font-weight:800;font-size:15px;
+  padding:11px 24px;border-radius:26px;background:var(--coral);color:#fff;box-shadow:0 6px 16px var(--shadow);transition:.2s;
+}
+#deck-nav button:disabled{opacity:.4;cursor:default}
+#deck-nav .page{font-weight:800;color:var(--warm-brown2);min-width:70px;text-align:center}
+
+@media(max-width:600px){
+  .slide{padding:34px 14px 44px}
+  .slide-inner{padding:30px 22px;border-radius:22px}
+  h1{font-size:27px}#cover h1{font-size:30px}h2{font-size:22px}
+  p{font-size:15.5px}
+  .ctable{font-size:13px}.ctable th,.ctable td{padding:10px 8px}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<div id="topbar">
+  <div class="brand">遠距照顧講義 <span>WaCare 線上課程</span></div>
+  <div class="mode-toggle">
+    <button id="m-scroll" class="active" onclick="setMode('scroll')">捲動閱讀</button>
+    <button id="m-deck" onclick="setMode('deck')">翻頁簡報</button>
+  </div>
+</div>
+
+<main>
+
+<!-- COVER -->
+<section class="slide" id="cover">
+  <div class="slide-inner">
+    <div class="sun"></div>
+    <h1>異地也能守護到位！<br>遠距照顧這樣做好安心</h1>
+    <div class="sub">用數位工具＋在地資源，為長輩織一張安心的守護網</div>
+    <div class="speaker-chip"><span class="dot">鍾</span> 鍾孟修　職能治療師 ｜ 愛迪樂居家職能治療所所長</div>
+    <div class="sponsor">本堂課由 <b>杏一醫療用品</b> 公益贊助<br>🎗️ 感謝長期關注高齡照護與家庭照顧需求</div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="slide" id="s1">
+  <div class="slide-inner">
+    <span class="kicker">CHAPTER 01 ｜ 為什麼需要遠距照顧</span>
+    <h2>身為照顧者，你是否也遇見這些狀況？</h2>
+    <p class="lead">人在外地，卻總是放心不下家中的失智長輩。電話裡說一切正常，回家才發現生活早已亂了套。</p>
+    <div class="pain-grid">
+      <div class="pain"><div class="emo">📞</div><p>打電話關心有沒有吃飯、吃藥，<span class="hl">回家卻發現藥包根本沒拆</span>。</p></div>
+      <div class="pain"><div class="emo">🚑</div><p>失智親友<span class="hl">在家跌倒卻沒人知道</span>，直到週末返家或叫了救護車才發現。</p></div>
+      <div class="pain"><div class="emo">💼</div><p>工作忙碌無法常常打電話確認，<span class="hl">不知道還有什麼方法</span>能掌握長輩狀況。</p></div>
+    </div>
+    <div class="empathy">距離，不該成為照顧的斷點。<br><strong>讓照顧不再只能靠運氣與擔心，而是有系統地掌握、即時回應。</strong></div>
+    <div class="foot">— 接下來，先做一個小檢測，看看你目前的遠距照顧狀態 —</div>
+  </div>
+</section>
+
+<!-- PRE-COURSE SURVEY -->
+<section class="slide" id="s1b">
+  <div class="slide-inner">
+    <span class="kicker">課前調查 ｜ Slido 即時互動</span>
+    <h2>上課前，先讓老師認識你</h2>
+    <p class="lead">請拿出手機加入 <b>Slido</b> 一起作答，現場即時看到大家的狀況；老師會依結果調整講解重點。</p>
+
+    <div class="slido-label">1️⃣ 你現在的照顧狀況比較接近？</div>
+    <div class="slido-wrap"><iframe src="https://app.sli.do/event/5tLBbrm2aMQUsLNfmupseE/embed/polls/eb727f75-9f41-4822-9af1-d61e8768db10" title="Slido 課前調查 1" loading="lazy" allow="clipboard-write"></iframe></div>
+
+    <div class="slido-label">2️⃣ 這些數位照顧工具，你用過哪些？（可複選）</div>
+    <div class="slido-wrap"><iframe src="https://app.sli.do/event/5tLBbrm2aMQUsLNfmupseE/embed/polls/c75081d9-224f-45c2-bebc-15d355d2d645" title="Slido 課前調查 2" loading="lazy" allow="clipboard-write"></iframe></div>
+
+    <div class="slido-label">3️⃣ 你對使用 3C／App 的熟悉程度？</div>
+    <div class="slido-wrap"><iframe src="https://app.sli.do/event/5tLBbrm2aMQUsLNfmupseE/embed/polls/77ea64a5-c780-4186-82e7-1fb78718c6f5" title="Slido 課前調查 3" loading="lazy" allow="clipboard-write"></iframe></div>
+
+    <div class="slido-label">4️⃣ 你對於課程的期待是什麼？</div>
+    <div class="slido-wrap"><iframe src="https://app.sli.do/event/5tLBbrm2aMQUsLNfmupseE/embed/polls/807797a4-3820-4f3c-9822-9ee281e40916" title="Slido 課前調查 4" loading="lazy" allow="clipboard-write"></iframe></div>
+
+    <div class="foot">※ Slido 為即時投票，需連線；結果會即時顯示於畫面。若投票尚未開放，畫面會顯示等待中。</div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="slide" id="s2">
+  <div class="slide-inner">
+    <span class="kicker">互動小測驗 ｜ 自我檢測</span>
+    <h2>你的「遠距照顧焦慮指數」有多高？</h2>
+    <div class="quiz-intro">下面 6 個情況，請依你目前狀況點選 <b>是</b> 或 <b>否</b>。全部答完後按下方按鈕，看看你的守護現況。</div>
+    <div id="quiz">
+      <div class="q2"><div class="qtext">我常常要靠「打電話問」才能知道長輩吃飯、吃藥沒。</div><div class="yn"><button onclick="ans(this,1)">是</button><button onclick="ans(this,0)">否</button></div></div>
+      <div class="q2"><div class="qtext">如果長輩在家跌倒，我可能要好幾個小時甚至隔天才會知道。</div><div class="yn"><button onclick="ans(this,1)">是</button><button onclick="ans(this,0)">否</button></div></div>
+      <div class="q2"><div class="qtext">我不清楚長輩白天一個人在家時，實際的活動與作息狀況。</div><div class="yn"><button onclick="ans(this,1)">是</button><button onclick="ans(this,0)">否</button></div></div>
+      <div class="q2"><div class="qtext">家裡目前沒有任何能「主動通知我」異常狀況的工具或服務。</div><div class="yn"><button onclick="ans(this,1)">是</button><button onclick="ans(this,0)">否</button></div></div>
+      <div class="q2"><div class="qtext">我不知道住家附近有哪些社區或在地照顧資源可以幫忙。</div><div class="yn"><button onclick="ans(this,1)">是</button><button onclick="ans(this,0)">否</button></div></div>
+      <div class="q2"><div class="qtext">我常因為「放心不下」而感到自責、焦慮，甚至影響工作與睡眠。</div><div class="yn"><button onclick="ans(this,1)">是</button><button onclick="ans(this,0)">否</button></div></div>
+    </div>
+    <div style="text-align:center"><button class="btn" onclick="scoreQuiz()">看看我的守護現況 →</button></div>
+    <div class="quiz-result" id="quizResult"></div>
+  </div>
+</section>
+
+<!-- TOOLS INTRO -->
+<section class="slide" id="s3">
+  <div class="slide-inner">
+    <span class="kicker">CHAPTER 02 ｜ 數位照護工具介紹</span>
+    <h2>有哪些「數位幫手」能替你看顧？</h2>
+    <p class="lead">遠距照顧的核心，是把「靠運氣」換成「有資料、會提醒、能通知」。常見的數位照護工具可分為四大類，各自掌握不同面向：</p>
+    <div class="dgrid">
+      <div class="dcard"><div class="dic">📍</div><h3>定位與外出守護</h3><p>掌握「<b>人在哪裡</b>」。GPS／藍牙定位裝置、防走失配件，降低外出與走失風險。</p></div>
+      <div class="dcard"><div class="dic">🛎️</div><h3>異常偵測與警報</h3><p>掌握「<b>有沒有出事</b>」。跌倒、長時間無活動偵測、緊急呼叫，異常主動推播家人。</p></div>
+      <div class="dcard"><div class="dic">💊</div><h3>用藥與作息提醒</h3><p>掌握「<b>有沒有照表做</b>」。智慧藥盒、提醒 App，協助按時服藥、記錄拆藥情況。</p></div>
+      <div class="dcard"><div class="dic">📱</div><h3>遠距互動與健康監測</h3><p>掌握「<b>身體與情緒趨勢</b>」。視訊關懷、生理量測（血壓／血糖）、線上照護平台彙整。</p></div>
+    </div>
+    <div class="empathy" style="margin-top:22px">重點不是「買最貴的」，而是<strong>對應你最擔心的那個風險</strong>，選一兩樣先用起來。<br>接下來逐類深入說明選用重點，並附參考影音。</div>
+  </div>
+</section>
+
+<!-- POSITIONING DEEP DIVE -->
+<section class="slide" id="s3c">
+  <div class="slide-inner">
+    <span class="kicker">定位與外出守護 ｜ 深入說明</span>
+    <h2>關於「定位與外出守護」，你該知道的四件事</h2>
+    <div class="illus-wrap"><svg class="illus" viewBox="0 0 460 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GPS定位與外出守護示意圖">
+      <rect width="460" height="180" rx="20" fill="#F6E9D8"/>
+      <path d="M40 152 Q120 130 150 92 T250 60" fill="none" stroke="#E7B14C" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 13"/>
+      <rect x="38" y="120" width="42" height="32" rx="4" fill="#8FB08A"/><path d="M34 122 L59 102 L84 122 Z" fill="#5E8A66"/>
+      <g transform="translate(150,38)">
+        <path d="M0 0C-26 0-40 18-40 38-40 64 0 96 0 96 0 96 40 64 40 38 40 18 26 0 0 0Z" fill="#E8845C"/>
+        <circle cx="0" cy="36" r="17" fill="#FBF4EA"/>
+        <circle cx="0" cy="30" r="6" fill="#D26A43"/><path d="M-9 46c0-7 4-11 9-11s9 4 9 11Z" fill="#D26A43"/>
+      </g>
+      <g transform="translate(330,52)">
+        <rect x="-4" y="-30" width="60" height="20" rx="7" fill="#D26A43"/><rect x="-4" y="58" width="60" height="20" rx="7" fill="#D26A43"/>
+        <rect x="-16" y="-10" width="84" height="70" rx="16" fill="#5C4630"/>
+        <rect x="-8" y="-2" width="68" height="54" rx="10" fill="#FFFDF9"/>
+        <circle cx="26" cy="25" r="8" fill="#E8845C"/><circle cx="26" cy="25" r="17" fill="none" stroke="#F7C9A8" stroke-width="3"/>
+      </g>
+    </svg></div>
+
+    <figure class="photo-fig">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Smartwatch-828786.jpg/500px-Smartwatch-828786.jpg" alt="智慧手錶（穿戴式定位裝置）示意照片" loading="lazy">
+      <figcaption class="photo-cred">示意照片：穿戴式智慧手錶（GPS 定位手錶屬此類） · 來源 <a href="https://commons.wikimedia.org/wiki/File:Smartwatch-828786.jpg" target="_blank">Wikimedia Commons</a> · CC0 公眾領域</figcaption>
+    </figure>
+    <h3>① 定位手錶／裝置的差異</h3>
+    <div class="cmp">
+      <div class="cmp-row head"><div>類型</div><div>定位原理</div><div>特性與適用</div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Smartwatch-828786.jpg/240px-Smartwatch-828786.jpg" alt="GPS定位手錶示意" loading="lazy"><b>GPS 定位手錶</b><span class="mini">需 4G／月租</span></div><div>衛星定位＋行動網路回傳，可<b>主動即時</b>查看位置</div><div>會自行外出、走失風險高者首選；待機約 3～5 天需常充電，每月約百元電信費</div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Airtag_-_6.jpg/240px-Airtag_-_6.jpg" alt="藍牙標籤 AirTag 示意" loading="lazy"><b>藍牙/Wi-Fi 輔助定位</b><span class="mini">如 AirTag、Tile、SmartTag</span></div><div>靠周邊大量手機「順路回報」位置，屬<b>被動協尋</b></div><div>輕巧便宜、鈕扣電池可用約一年、免月租；但無網路時不會主動回報，距離近才偵測得到</div></div>
+    </div>
+    <p style="margin-top:10px;font-size:15px;color:var(--warm-brown2)">
+      <b>AirTag、Tile、Samsung/Google SmartTag</b> 與 GPS 手錶的根本差別：前者都是<span class="hl">藍牙標籤</span>，本身不含 GPS、不上網，要靠別人的手機經過才知道位置（被動協尋）；GPS 手錶則能<span class="hl">自己定位、主動回傳</span>，你隨時打開就看得到（主動定位）。
+      <span class="warn">※ 提醒：AirTag 等蘋果官方僅建議用於尋找隨身物品，並未建議配戴於人身上。</span>
+    </p>
+    <figure class="photo-fig">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Airtag_-_6.jpg/500px-Airtag_-_6.jpg" alt="Apple AirTag 藍牙標籤示意照片" loading="lazy">
+      <figcaption class="photo-cred">示意照片：Apple AirTag（鈕扣大小的藍牙標籤，約 990 元、電池約一年） · 來源 <a href="https://commons.wikimedia.org/wiki/File:Airtag_-_6.jpg" target="_blank">Wikimedia Commons</a> / KKPCW · CC BY-SA 4.0</figcaption>
+    </figure>
+
+    <h3>② 搭配建議與政府補助</h3>
+    <p style="margin-bottom:8px"><b>實際搭配：</b>建議「<span class="hl">GPS 主動定位</span>」為主、「<span class="hl">藍牙標籤</span>」為輔——GPS 手錶放外出時即時追蹤，AirTag 縫在外套／包包當第二道防線，雙保險避免單一裝置沒電或被取下時失聯。</p>
+    <p style="margin-bottom:8px"><b>進階技巧—鞋墊定位：</b>長輩出門「<span class="hl">一定會穿鞋</span>」，比包包、鑰匙更不容易忘記帶。可把 <b>GPS 定位鞋墊</b>（內含 SIM，主動即時）或把 <b>AirTag 放入鞋墊夾層／專用鞋墊保護套</b>（藍牙被動）藏在鞋內，避免長輩排斥配戴或自行取下。<span class="warn">※ 含 SIM 鞋墊＝主動即時但需月租；AirTag 鞋墊＝免月租但屬被動協尋，人少處可能抓不到。</span></p>
+    <figure class="photo-fig" style="max-width:330px">
+      <img src="https://m.media-amazon.com/images/I/71IVWNS-IXL._AC_UF1000,1000_QL80_.jpg" alt="AirTag 防走失鞋墊示意照片" loading="lazy" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/ShoeCue_insole.jpg/500px-ShoeCue_insole.jpg';">
+      <figcaption class="photo-cred">示意照片：AirTag 防走失鞋墊（把 AirTag 藏入鞋墊夾層，長輩穿鞋即帶著走）。<br>※ 若此商品圖在你的環境無法顯示，會自動改用替代示意圖。</figcaption>
+    </figure>
+    <div class="subsidy">
+      <div class="sub-ic">💰</div>
+      <div>
+        <b>政府補助（以長照／輔具補助為例）</b><br>
+        針對失智症、智能障礙等、有獨立外出能力且有走失之虞者，經各地<b>長期照顧管理中心或輔具中心評估</b>，可申請<b>個人衛星定位器（GPS）補助</b>（最高約 1 萬元），依身分別約為：<b>一般戶 5,000 元、中低收入戶 7,500 元、低收入戶 10,000 元</b>。<br>
+        <span class="mini2">※ 各縣市金額與資格略有差異（例如部分縣市為 4,500／6,750／9,000 元），實際請洽當地長照管理中心（1966 專線）或輔具中心，依戶籍地核定為準。</span>
+      </div>
+    </div>
+
+    <h3>③ 其他實體輔助配件（很有幫助！）</h3>
+    <p style="margin-bottom:8px">數位設備之外，<b>低成本的實體配件</b>對外出守護同樣關鍵，尤其當長輩不願配戴電子裝置時：</p>
+    <div class="acc-grid">
+      <div class="acc"><span>🏷️</span><div><b>衣物 QR Code／愛心布標</b><br>縫於衣領或外套，掃描即可聯繫家屬，協助民眾通報。</div></div>
+      <div class="acc"><span>📿</span><div><b>愛的手鍊（符合資格可免費申請）</b><br>刻有專屬編號，民眾或警方憑編號即可聯繫家屬。由<b>老人福利推動聯盟「失蹤老人協尋中心」</b>辦理：失智／智能／精神障礙者持身障證明或診斷書<b>可免費申請</b>（自費首年約 750 元、次年起 500 元）；專線 <b>02-2597-1700</b>，配戴者尋獲率近 100%。</div></div>
+      <div class="acc"><span>🪪</span><div><b>資料卡牌／隨身識別卡</b><br>放於口袋或皮夾，載明姓名、緊急聯絡與注意事項。</div></div>
+      <div class="acc"><span>🔖</span><div><b>指紋／照片建檔</b><br>事先到警局做<b>指紋捺印建檔</b>、定期更新近照。好處：當長輩走失又<b>說不清自己身分、身上沒帶證件</b>時，警方能<b>用指紋快速確認身分、立刻聯繫到家屬</b>；最新近照則可在走失當下馬上發布協尋圖卡，提高路人與監視系統的辨識率，把握黃金搜尋時間。</div></div>
+    </div>
+    <div class="combo-note" style="margin-top:14px">🌿 口訣參考：走失協尋「<b>三不六要</b>」——報案不用等、不用跑、不用錢；要更新照片、戴愛的手鍊、做指紋建檔、縫愛心布標、配戴定位、鄰里守望相助。</div>
+    <div class="media">
+      <h4>🎬 參考影音</h4>
+      <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/FSO_GN_V_2E" title="AirTag 防失智長輩走失介紹" allowfullscreen></iframe></div>
+      <div class="vcap">影片：待機長達一年、免月租的追蹤器 AirTag，防失智長輩走失（小周藥師）</div>
+      <div class="search-links">
+        <a href="https://www.google.com/search?tbm=isch&q=失智+GPS+定位手錶+防走失" target="_blank">🔍 Google 圖片：定位手錶</a>
+        <a href="https://www.google.com/search?tbm=isch&q=愛的手鍊+防走失" target="_blank">🔍 Google 圖片：愛的手鍊</a>
+        <a class="yt" href="https://www.youtube.com/results?search_query=失智+長輩+GPS+定位手錶+介紹" target="_blank">▶ YouTube：更多定位產品</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ: positioning -->
+<section class="slide" id="q3c">
+  <div class="slide-inner">
+    <span class="kicker">隨堂小測 ｜ 定位與外出守護</span>
+    <h2>學會了嗎？點選答案立刻對答案</h2>
+    <div class="kq" data-correct="1">
+      <p class="kq-q">Q1. 長輩會自行外出、走失風險高，最適合哪種定位？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">只放一顆 AirTag 在包包就好</button>
+        <button onclick="kPick(this,1)">以 GPS 主動定位手錶／裝置為主</button>
+        <button onclick="kPick(this,2)">不用裝，靠鄰居多注意</button>
+      </div>
+      <div class="kq-fb" data-fb="GPS 能主動即時回傳位置；AirTag 屬被動協尋。高走失風險者應以主動 GPS 為主、藍牙標籤為輔。"></div>
+    </div>
+    <div class="kq" data-correct="1">
+      <p class="kq-q">Q2. 「純 GPS、不加電信」就能即時把位置傳回你手機？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">對，純 GPS 免月租即可回傳</button>
+        <button onclick="kPick(this,1)">不對，回傳位置需行動網路／SIM，所以仍需月租</button>
+        <button onclick="kPick(this,2)">只要有藍牙就能回傳</button>
+      </div>
+      <div class="kq-fb" data-fb="GPS 只負責「算出自己在哪」，要把座標傳回手機需要行動網路，因此純 GPS 裝置仍需 SIM／月租。"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ALARM DEEP DIVE -->
+<section class="slide" id="s3d">
+  <div class="slide-inner">
+    <span class="kicker">異常偵測與警報 ｜ 深入說明</span>
+    <h2>「異常偵測與警報」怎麼幫你顧？</h2>
+    <div class="illus-wrap"><svg class="illus" viewBox="0 0 460 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="異常偵測與警報示意圖">
+      <rect width="460" height="180" rx="20" fill="#F6E9D8"/>
+      <g transform="translate(70,38)">
+        <rect x="0" y="40" width="110" height="76" rx="8" fill="#FFFDF9"/>
+        <path d="M-10 44 L55 0 L120 44 Z" fill="#8FB08A"/>
+        <rect x="44" y="74" width="30" height="42" rx="3" fill="#F7C9A8"/>
+        <circle cx="120" cy="14" r="9" fill="#E8845C"/>
+        <path d="M134 14a14 14 0 0 0-14-14" fill="none" stroke="#E8845C" stroke-width="4" stroke-linecap="round"/>
+        <path d="M146 14a26 26 0 0 0-26-26" fill="none" stroke="#F0A77E" stroke-width="4" stroke-linecap="round"/>
+      </g>
+      <path d="M225 70 Q260 60 295 70" fill="none" stroke="#E7B14C" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <g transform="translate(320,40)">
+        <rect x="0" y="0" width="80" height="120" rx="14" fill="#5C4630"/>
+        <rect x="7" y="10" width="66" height="100" rx="8" fill="#FFFDF9"/>
+        <rect x="16" y="24" width="48" height="14" rx="7" fill="#E8845C"/>
+        <text x="40" y="35" font-family="sans-serif" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">!</text>
+        <rect x="16" y="48" width="48" height="7" rx="3.5" fill="#F6E9D8"/>
+        <rect x="16" y="60" width="34" height="7" rx="3.5" fill="#F6E9D8"/>
+        <circle cx="40" cy="92" r="11" fill="#8FB08A"/>
+      </g>
+    </svg></div>
+    <p class="lead">核心價值：把「<span class="hl">事後才知道</span>」變成「<span class="hl">出事當下就通知</span>」。常見有四種形式。</p>
+    <figure class="photo-fig">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Seniofon_1000-A_Hausnotrufger%C3%A4t_mit_Handsender.png/500px-Seniofon_1000-A_Hausnotrufger%C3%A4t_mit_Handsender.png" alt="居家緊急通報主機與隨身求救按鈕示意照片" loading="lazy">
+      <figcaption class="photo-cred">示意照片：居家緊急通報主機＋隨身求救按鈕 · 來源 <a href="https://commons.wikimedia.org/wiki/File:Seniofon_1000-A_Hausnotrufger%C3%A4t_mit_Handsender.png" target="_blank">Wikimedia Commons</a> / Seniofongmbh · CC BY 3.0</figcaption>
+    </figure>
+    <div class="cmp">
+      <div class="cmp-row head"><div>類型</div><div>怎麼運作</div><div>適用與留意</div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Smartwatch-828786.jpg/240px-Smartwatch-828786.jpg" alt="穿戴式跌倒偵測手錶示意" loading="lazy"><b>穿戴式跌倒偵測</b><span class="mini">手錶／墜飾</span></div><div>長輩隨身配戴，內建感測器偵測跌倒、姿勢驟變，多附一鍵 SOS，自動通知家人</div><div>外出、在家都能用；但需長輩<b>願意配戴、記得充電</b></div></div>
+      <div class="cmp-row"><div><b>環境式跌倒偵測</b><span class="mini">雷達／紅外線</span></div><div>裝在天花板或牆面，以雷達電波或紅外線偵測跌倒、長時間倒地不起</div><div><b>免配戴、不打擾</b>，隱私佳（非攝影）；需安裝、設定正常範圍以免誤報</div></div>
+      <div class="cmp-row"><div><b>長時間無活動偵測</b><span class="mini">離床／門磁／水電感測</span></div><div>偵測長時間沒有起床、沒開門、沒用水用電，研判是否異常</div><div>不需長輩操作，最不打擾；適合作息規律者，需先設定正常範圍</div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Seniofon_1000-A_Hausnotrufger%C3%A4t_mit_Handsender.png/240px-Seniofon_1000-A_Hausnotrufger%C3%A4t_mit_Handsender.png" alt="緊急呼叫鈕示意" loading="lazy"><b>緊急呼叫鈕</b><span class="mini">隨身／牆面拉繩</span></div><div>長輩主動按鈕／拉繩，連線 24 小時監控中心或家人</div><div>意識清楚、能主動求助者；<b>獨居長者多有地方政府「緊急救援系統」補助</b>（詳見補助頁）</div></div>
+      <div class="cmp-row"><div><b>安全看視攝影</b><span class="mini">居家鏡頭</span></div><div>遠端查看居家畫面，部分具離床、跌倒 AI 警示</div><div>能即時確認，但<b>須留意長輩隱私與意願</b>，避免裝在私密空間</div></div>
+    </div>
+    <div class="combo-note" style="margin-top:14px;background:#EAF2F4;color:#3F6B7D">🛡️ 隱私小知識：<b>雷達／紅外線屬「非影像」偵測</b>——靠無線電波或熱感判斷跌倒，<b>不會拍到長輩的樣貌</b>，所以能裝在<b>浴室、臥室</b>等不適合裝鏡頭的空間；對薄浴簾／布簾穿透力較好，多隔著簾子仍可運作。</div>
+    <div class="combo-note" style="margin-top:10px;background:#FBF1DF">📐 會受隔間影響嗎？<b>會。</b>雷達單台<b>偵測範圍有限</b>（多為半徑約 2～3 公尺），且<b>實心牆會擋住或衰減訊號</b>，因此通常是「<b>一個空間裝一台</b>」——客廳、臥室、浴室要分別布設，無法一台顧全屋。安裝高度、角度與遮蔽請依各原廠建議。</div>
+    <div class="combo-note" style="margin-top:14px">🌿 重點：偵測到只是第一步，務必設定「<b>通知誰、誰先處理</b>」，並定期測試會不會誤報或漏報。</div>
+    <div class="media">
+      <h4>🎬 參考影音</h4>
+      <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/k_XHydaOAR0" title="智慧手錶跌倒偵測介紹" allowfullscreen></iframe></div>
+      <div class="vcap">影片：獨居救命超有效！智慧手錶「跌倒偵測」（民視新聞）</div>
+      <div class="search-links">
+        <a href="https://www.google.com/search?tbm=isch&q=居家+跌倒偵測+感測器" target="_blank">🔍 Google 圖片：跌倒偵測器</a>
+        <a href="https://www.google.com/search?tbm=isch&q=緊急呼叫鈕+居家+長輩" target="_blank">🔍 Google 圖片：緊急呼叫鈕</a>
+        <a class="yt" href="https://www.youtube.com/results?search_query=居家+跌倒偵測+警報+長輩" target="_blank">▶ YouTube：更多偵測警報</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ: alarm -->
+<section class="slide" id="q3d">
+  <div class="slide-inner">
+    <span class="kicker">隨堂小測 ｜ 異常偵測與警報</span>
+    <h2>學會了嗎？點選答案立刻對答案</h2>
+    <div class="kq" data-correct="1">
+      <p class="kq-q">Q1. 想在浴室裝跌倒偵測、又顧及長輩隱私，較適合？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">裝攝影鏡頭即時看畫面</button>
+        <button onclick="kPick(this,1)">用雷達／紅外線「非影像」偵測</button>
+        <button onclick="kPick(this,2)">浴室不能裝任何偵測</button>
+      </div>
+      <div class="kq-fb" data-fb="雷達／紅外線不會拍到樣貌，適合浴室、臥室；攝影鏡頭應避開私密空間並徵得同意。"></div>
+    </div>
+    <div class="kq" data-correct="2">
+      <p class="kq-q">Q2. 環境式雷達偵測，能不能一台顧全家？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">可以，一台就能涵蓋整間屋子</button>
+        <button onclick="kPick(this,1)">可以，牆完全擋不住</button>
+        <button onclick="kPick(this,2)">不行，範圍有限又會被實心牆擋住，通常一個空間裝一台</button>
+      </div>
+      <div class="kq-fb" data-fb="雷達單台約半徑 2～3 公尺，實心牆會衰減訊號，所以客廳、臥室、浴室通常要分別布設。"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDICATION DEEP DIVE -->
+<section class="slide" id="s3e">
+  <div class="slide-inner">
+    <span class="kicker">用藥與作息提醒 ｜ 深入說明</span>
+    <h2>「用藥與作息提醒」怎麼幫你顧？</h2>
+    <div class="illus-wrap"><svg class="illus" viewBox="0 0 460 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="用藥與作息提醒示意圖">
+      <rect width="460" height="180" rx="20" fill="#F6E9D8"/>
+      <g transform="translate(46,58)">
+        <rect x="0" y="0" width="210" height="70" rx="12" fill="#FFFDF9"/>
+        <g>
+          <rect x="12" y="12" width="44" height="46" rx="6" fill="#F7C9A8"/><circle cx="34" cy="35" r="9" fill="#E8845C"/>
+          <rect x="64" y="12" width="44" height="46" rx="6" fill="#FBE0D0"/><circle cx="86" cy="35" r="9" fill="#E7B14C"/>
+          <rect x="116" y="12" width="44" height="46" rx="6" fill="#E3F0E1"/><circle cx="138" cy="35" r="9" fill="#8FB08A"/>
+          <rect x="168" y="12" width="30" height="46" rx="6" fill="#F6E9D8"/>
+        </g>
+      </g>
+      <g transform="translate(330,90)">
+        <circle r="46" fill="#FFFDF9"/><circle r="46" fill="none" stroke="#F7C9A8" stroke-width="5"/>
+        <line x1="0" y1="0" x2="0" y2="-28" stroke="#D26A43" stroke-width="5" stroke-linecap="round"/>
+        <line x1="0" y1="0" x2="20" y2="10" stroke="#D26A43" stroke-width="5" stroke-linecap="round"/>
+        <circle r="5" fill="#E8845C"/>
+        <path d="M40-44a12 12 0 0 1 18 0" fill="none" stroke="#E7B14C" stroke-width="5" stroke-linecap="round"/>
+      </g>
+    </svg></div>
+    <p class="lead">核心價值：解決「<span class="hl">打電話說有吃，藥包卻沒拆</span>」——讓服藥可提醒、可記錄、可追蹤。</p>
+    <figure class="photo-fig">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Heptagonal_objects_A_weekly_medicine_box_846A60E4-A96F-4D2C-B010-FDB950E1DA4A.jpg/500px-Heptagonal_objects_A_weekly_medicine_box_846A60E4-A96F-4D2C-B010-FDB950E1DA4A.jpg" alt="每週分裝藥盒示意照片" loading="lazy">
+      <figcaption class="photo-cred">示意照片：每週分裝藥盒（智慧藥盒的基本形式） · 來源 <a href="https://commons.wikimedia.org/wiki/File:Heptagonal_objects_A_weekly_medicine_box_846A60E4-A96F-4D2C-B010-FDB950E1DA4A.jpg" target="_blank">Wikimedia Commons</a> / יוחי טייס · CC BY-SA 4.0</figcaption>
+    </figure>
+    <div class="cmp">
+      <div class="cmp-row head"><div>類型</div><div>怎麼運作</div><div>適用與留意</div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Heptagonal_objects_A_weekly_medicine_box_846A60E4-A96F-4D2C-B010-FDB950E1DA4A.jpg/240px-Heptagonal_objects_A_weekly_medicine_box_846A60E4-A96F-4D2C-B010-FDB950E1DA4A.jpg" alt="智慧藥盒示意" loading="lazy"><b>智慧藥盒</b><span class="mini">聲光＋通知</span></div><div>到時間發出聲光提醒；未拆／未取藥則推播通知家人</div><div>需定時服藥、常忘記者；仍需有人定期補藥</div></div>
+      <div class="cmp-row"><div><b>提醒 App／語音助理</b><span class="mini">手機／智慧音箱</span></div><div>設定吃藥、回診、喝水等定時語音或訊息提醒</div><div>成本低、好上手；長輩需聽得到、看得懂或有人協助</div></div>
+      <div class="cmp-row"><div><b>作息／活動感測</b><span class="mini">穿戴或環境</span></div><div>記錄睡眠、起床、活動量，呈現作息趨勢供家人觀察</div><div>幫助及早發現作息混亂；數據需有人定期回看</div></div>
+    </div>
+    <div class="combo-note" style="margin-top:14px">🌿 重點：數位負責「提醒與記錄」，但<b>補藥、確認真的吃下去</b>，仍需在地的人補位。適合輕中度、尚能配合者。<br>💰 補助：「服藥提醒盒」屬社家署列管輔具，<b>領有身障證明者可申請身心障礙輔具補助</b>（詳見後面「補助資源」頁）。</div>
+    <div class="media">
+      <h4>🎬 參考影音</h4>
+      <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/ZOemka8R9Eg" title="智慧藥盒介紹" allowfullscreen></iframe></div>
+      <div class="vcap">影片：不怕長輩吃錯藥！「智慧藥盒」幫你搞定（華視新聞）</div>
+      <div class="search-links">
+        <a href="https://www.google.com/search?tbm=isch&q=智慧藥盒+服藥提醒" target="_blank">🔍 Google 圖片：智慧藥盒</a>
+        <a href="https://www.google.com/search?tbm=isch&q=吃藥提醒+App+長輩" target="_blank">🔍 Google 圖片：服藥提醒 App</a>
+        <a class="yt" href="https://www.youtube.com/results?search_query=智慧藥盒+服藥提醒+介紹" target="_blank">▶ YouTube：更多智慧藥盒</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ: medication -->
+<section class="slide" id="q3e">
+  <div class="slide-inner">
+    <span class="kicker">隨堂小測 ｜ 用藥與作息提醒</span>
+    <h2>學會了嗎？點選答案立刻對答案</h2>
+    <div class="kq" data-correct="1">
+      <p class="kq-q">Q1. 智慧藥盒最大的限制是什麼？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">買了就完全不用人管</button>
+        <button onclick="kPick(this,1)">仍需有人定期補藥、確認真的吃下去</button>
+        <button onclick="kPick(this,2)">一定要付月租費</button>
+      </div>
+      <div class="kq-fb" data-fb="數位負責「提醒與記錄」，但補藥與確認真的服下，仍需在地的人補位，適合輕中度長輩。"></div>
+    </div>
+    <div class="kq" data-correct="1">
+      <p class="kq-q">Q2. 關於「服藥提醒盒」的補助，下列何者正確？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">完全沒有任何補助</button>
+        <button onclick="kPick(this,1)">領有身障證明者，可申請身障輔具費用補助</button>
+        <button onclick="kPick(this,2)">只能全額自費</button>
+      </div>
+      <div class="kq-fb" data-fb="服藥提醒盒是社家署列管輔具，領有身障證明、經評估者可申請補助；長照同類品項可洽輔具中心。"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TELECARE DEEP DIVE -->
+<section class="slide" id="s3f">
+  <div class="slide-inner">
+    <span class="kicker">遠距互動與健康監測 ｜ 深入說明</span>
+    <h2>「遠距互動與健康監測」怎麼幫你顧？</h2>
+    <div class="illus-wrap"><svg class="illus" viewBox="0 0 460 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="遠距互動與健康監測示意圖">
+      <rect width="460" height="180" rx="20" fill="#F6E9D8"/>
+      <g transform="translate(60,38)">
+        <rect x="0" y="0" width="86" height="120" rx="14" fill="#5C4630"/>
+        <rect x="7" y="10" width="72" height="100" rx="8" fill="#7FB1C9"/>
+        <circle cx="43" cy="44" r="17" fill="#FBF4EA"/><circle cx="43" cy="38" r="6" fill="#D26A43"/><path d="M30 60c0-9 6-14 13-14s13 5 13 14Z" fill="#D26A43"/>
+        <rect x="20" y="84" width="46" height="14" rx="7" fill="#E8845C"/>
+      </g>
+      <path d="M170 92 Q200 80 215 92" fill="none" stroke="#E7B14C" stroke-width="5" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <g transform="translate(238,46)">
+        <rect x="0" y="0" width="170" height="92" rx="14" fill="#FFFDF9"/>
+        <polyline points="14,58 38,58 50,30 66,78 82,46 96,58 120,58" fill="none" stroke="#E8845C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M140 34c8-9 22 1 0 16-22-15-8-25 0-16Z" fill="#F07E7E"/>
+        <rect x="14" y="72" width="60" height="8" rx="4" fill="#E3F0E1"/>
+        <rect x="84" y="72" width="40" height="8" rx="4" fill="#F6E9D8"/>
+      </g>
+    </svg></div>
+    <p class="lead">核心價值：不只看「有沒有出事」，更能掌握「<span class="hl">身體與情緒的趨勢</span>」，並維持情感連結。</p>
+    <figure class="photo-fig">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/2017_Sfigmomanometr_elektroniczny.jpg/500px-2017_Sfigmomanometr_elektroniczny.jpg" alt="電子血壓計示意照片" loading="lazy">
+      <figcaption class="photo-cred">示意照片：電子血壓計（居家生理量測） · 來源 <a href="https://commons.wikimedia.org/wiki/File:2017_Sfigmomanometr_elektroniczny.jpg" target="_blank">Wikimedia Commons</a> / Jacek Halicki · CC BY-SA 4.0</figcaption>
+    </figure>
+    <div class="cmp">
+      <div class="cmp-row head"><div>類型</div><div>怎麼運作</div><div>適用與留意</div></div>
+      <div class="cmp-row"><div><b>視訊關懷</b><span class="mini">家用首選 LINE 視訊</span></div><div>定期視訊問候、確認神情與環境，維持互動與陪伴</div><div><b>台灣家庭最常用 LINE 視訊</b>（人人會用、零門檻）；Google Meet、Zoom 多用於課程或多人會議，如本課即用 Meet</div></div>
+      <div class="cmp-row"><div><b>銀髮專用視訊裝置</b><span class="mini">以電視／平板為載具</span></div><div>用長輩熟悉的「電視」大螢幕做視訊、家庭相簿、生活提醒，零學習門檻</div><div>如<b>瑪帛科技 MABOW TV 電視電話</b>（已登錄社家署輔具）；適合不會用手機 App 的長輩，也有平板版可選</div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/2017_Sfigmomanometr_elektroniczny.jpg/240px-2017_Sfigmomanometr_elektroniczny.jpg" alt="生理量測血壓計示意" loading="lazy"><b>生理量測裝置</b><span class="mini">血壓／血糖／血氧</span></div><div>量測後藍牙自動上傳，家人手機即可看數值與趨勢</div><div>慢性病長期監測首選；數據需有人判讀與回應</div></div>
+      <div class="cmp-row"><div><b>線上照護平台</b><span class="mini">資料彙整</span></div><div>把用藥、量測、活動等資料集中，呈現趨勢圖與異常提示</div><div>適合多項工具整合管理；需建立紀錄與檢視習慣</div></div>
+    </div>
+    <div class="combo-note" style="margin-top:14px">🌿 重點：監測的意義在「<b>看見變化、及早調整</b>」。數據蒐集後，要搭配醫療或長照專業一起判讀。</div>
+
+    <h3 style="margin-top:22px">深入：把遠距照護做得更到位</h3>
+    <div class="takeaway">
+      <div><b>① 視訊關懷不只是「看到人」</b>　固定每天／每週同一時段，像赴約一樣；除了聊天，順便觀察四件事：<b>氣色與表情、家裡整潔與食物、有沒有重複問同樣的話、藥盒拆了沒</b>。把鏡頭當成「定期家訪」。</div>
+      <div><b>② 善用健保「視訊診療」</b>　長輩行動不便或在外地時，部分情況可透過<b>健保通訊診察（視訊診療）</b>由醫師遠距看診、開立慢性病連續處方箋，再到鄰近藥局領藥，減少奔波。可先問長輩的固定看診院所是否提供。</div>
+      <div><b>③ 數據要先「設警戒值」才有用</b>　和醫師約定好<b>正常範圍與紅線</b>（例如血壓、血糖上下限），超過就提醒、連續異常就回診。沒有判讀標準的數據，只是一堆數字。</div>
+      <div><b>④ 分級反應，不要每次都緊張</b>　建議分三級：<b>綠（正常記錄）→ 黃（提醒、加量測、視訊確認）→ 紅（立即聯繫在地的人或就醫）</b>，全家先講好，臨場才不會慌。</div>
+    </div>
+    <div class="combo-note" style="margin-top:14px;background:#E9F2E6;color:var(--sage-deep)">💚 對失智長輩而言，<b>規律的視訊互動本身就是一種「定向感」與情感支持</b>——固定的臉孔、固定的時間，能減少焦慮與混亂。</div>
+
+    <div class="media">
+      <h4>🎬 參考影音</h4>
+      <div class="search-links">
+        <a href="https://www.google.com/search?tbm=isch&q=居家+血壓+血糖+藍牙+量測+遠端" target="_blank">🔍 Google 圖片：生理量測裝置</a>
+        <a href="https://www.google.com/search?tbm=isch&q=LINE+視訊+長輩+關懷" target="_blank">🔍 Google 圖片：LINE 視訊關懷</a>
+        <a class="yt" href="https://www.youtube.com/results?search_query=遠距+健康監測+居家+照護" target="_blank">▶ YouTube：遠距健康監測</a>
+        <a class="yt" href="https://www.youtube.com/results?search_query=LINE+視訊通話+教學+長輩" target="_blank">▶ YouTube：LINE 視訊教學</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ: telecare -->
+<section class="slide" id="q3f">
+  <div class="slide-inner">
+    <span class="kicker">隨堂小測 ｜ 遠距互動與健康監測</span>
+    <h2>學會了嗎？點選答案立刻對答案</h2>
+    <div class="kq" data-correct="1">
+      <p class="kq-q">Q1. 在台灣，長輩最沒門檻、最常用的視訊關懷工具是？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">Google Meet</button>
+        <button onclick="kPick(this,1)">LINE 視訊</button>
+        <button onclick="kPick(this,2)">Zoom</button>
+      </div>
+      <div class="kq-fb" data-fb="LINE 幾乎人人會用、零門檻；Google Meet、Zoom 多用於課程或多人會議。不會用手機的長輩也可考慮電視型視訊裝置（如 MABOW）。"></div>
+    </div>
+    <div class="kq" data-correct="1">
+      <p class="kq-q">Q2. 量了一堆血壓、血糖數據，要真正有用的前提是？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">量越多次越好，不用管標準</button>
+        <button onclick="kPick(this,1)">先和醫師約定好正常範圍／警戒值，異常才有依據</button>
+        <button onclick="kPick(this,2)">自己上網查就好，不必問醫師</button>
+      </div>
+      <div class="kq-fb" data-fb="沒有判讀標準的數據只是一堆數字。先設好警戒值、分級反應（綠／黃／紅），並由醫療或長照專業協助判讀。"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSIDY 1: 長照3.0 overview + rental -->
+<section class="slide" id="s3g">
+  <div class="slide-inner">
+    <span class="kicker">補助資源 ｜ 長照 3.0 新制</span>
+    <h2>好消息：智慧科技輔具，可望「用租的」也有補助</h2>
+    <div class="news">
+      <div class="news-badge">2026 / 7 月 起</div>
+      <p style="margin:0"><b>長照 3.0</b> 規劃自 <b>2026 年 7 月 1 日</b> 起新增「<span class="hl">全租賃智慧科技輔具</span>」給付項目，把智慧監測設備納入長照補助，減輕家庭一次購置負擔。</p>
+    </div>
+
+    <h3>💡 重點一次看</h3>
+    <div class="takeaway">
+      <div><b>補助額度：</b>輔具及居家無障礙改善額度提高為<b>每 3 年最高 6 萬元</b>（其中含居家無障礙環境改善 2 萬元）。</div>
+      <div><b>採「全租賃」制：</b>智慧輔具用<b>租的</b>，由廠商負責回收、清消、再利用，免一次大筆購置。</div>
+      <div><b>納入五大類：</b>移位、移動、沐浴與排泄、居家照顧床，以及與失智最相關的<b>「安全看視」</b>（離床、走失監測等）。</div>
+      <div><b>須具智慧功能：</b>設備要有<b>感測、數據紀錄、傳輸與回饋分析</b>能力，才納入補助。</div>
+    </div>
+    <div class="foot">↓ 下一頁：購買補助 vs 租賃補助，怎麼選、怎麼申請 ↓</div>
+  </div>
+</section>
+
+<!-- SUBSIDY 2: buy vs rent + how to apply -->
+<section class="slide" id="s3h">
+  <div class="slide-inner">
+    <span class="kicker">補助資源 ｜ 購買 vs 租賃</span>
+    <h2>購買補助 ＆ 租賃補助，差在哪？</h2>
+    <div class="cmp">
+      <div class="cmp-row head"><div>比較</div><div>傳統輔具「購買」補助</div><div>智慧科技輔具「全租賃」補助（新）</div></div>
+      <div class="cmp-row"><div><b>取得方式</b></div><div>一次購置，補助部分金額</div><div>按月／期租用，廠商提供與維護</div></div>
+      <div class="cmp-row"><div><b>適合情況</b></div><div>長期固定使用、款式單純的輔具</div><div>需要智慧監測、或需求會變動者</div></div>
+      <div class="cmp-row"><div><b>負擔與彈性</b></div><div>一次支出較高，自行保養</div><div>降低一次負擔，含回收清消再利用</div></div>
+      <div class="cmp-row"><div><b>申請方式</b></div><div colspan="2" style="grid-column:span 2"><b>兩者二擇一</b>：智慧輔具與傳統輔具擇一申請，原有一般輔具補助權益不受影響</div></div>
+    </div>
+
+    <h3>📞 怎麼申請？</h3>
+    <div class="subsidy">
+      <div class="sub-ic">📝</div>
+      <div>
+        <b>步驟：</b>撥打 <b>1966 長照服務專線</b> → 由<b>照管專員到府評估</b>失能等級 → 經評估符合<b>長照需要等級第 2～8 級</b>者，即可使用「輔具及居家無障礙環境改善」給付額度申請。<br>
+        <span class="mini2">※ 第二階段也規劃放寬，讓未滿 50 歲的年輕型失智者也能符合長照申請資格。</span>
+      </div>
+    </div>
+    <div class="warn-box">⚠️ 以上為政策規劃方向與媒體公開資訊整理，<b>實際上路時間、補助項目、金額與資格以衛福部及各縣市長照管理中心正式公告為準</b>，申請前請先撥 1966 確認。</div>
+  </div>
+</section>
+
+<!-- SUBSIDY 3: which tools + how to apply -->
+<section class="slide" id="s3i">
+  <div class="slide-inner">
+    <span class="kicker">補助資源 ｜ 哪些工具有補助、怎麼申請</span>
+    <h2>遠距照顧工具，哪些有補助？怎麼申請？</h2>
+    <p class="lead">補助主要來自<b>三條管道</b>：<span class="hl">長照輔具給付</span>（看失能程度）、<span class="hl-sage">身心障礙者輔具費用補助</span>（需身障證明），以及<b>地方政府社政</b>的獨居老人服務（如緊急救援系統）。同類輔具長照與身障通常<b>擇一</b>申請。</p>
+    <div class="cmp">
+      <div class="cmp-row head"><div>工具／輔具</div><div>可申請的補助管道</div><div>重點</div></div>
+      <div class="cmp-row"><div><b>GPS 個人衛星定位器</b></div><div>長照輔具給付 或 身障輔具補助</div><div>一般戶 5,000／中低收 7,500／低收 10,000 元（最高 1 萬）</div></div>
+      <div class="cmp-row"><div><b>緊急呼叫鈕／緊急救援系統</b></div><div>地方政府社會局（獨居老人服務）</div><div><b>弱勢／獨居長者多可全額或半額補助</b>（含主機、隨身鈕、24 小時連線）；各縣市條件不同</div></div>
+      <div class="cmp-row"><div><b>智慧藥盒／服藥提醒盒</b></div><div>身心障礙者輔具費用補助</div><div>「<b>服藥提醒盒</b>」為社家署列管輔具，需身障證明、經評估；長照同類品項請洽輔具中心確認</div></div>
+      <div class="cmp-row"><div><b>跌倒／離床／安全看視</b></div><div>長照 3.0 全租賃智慧科技輔具（2026/7 起）</div><div>含於「每 3 年最高 6 萬元」額度，採租賃</div></div>
+      <div class="cmp-row"><div><b>居家照顧床、移位／移動／沐浴排泄</b></div><div>長照輔具給付（一般或智慧科技輔具）</div><div>智慧型走租賃制；傳統型走購買補助，二擇一</div></div>
+      <div class="cmp-row"><div><b>居家無障礙改善（扶手、防滑等）</b></div><div>長照輔具及居家無障礙給付</div><div>含於總額度內，居家無障礙部分以 2 萬元為限</div></div>
+    </div>
+
+    <h3>📞 兩條申請路徑</h3>
+    <div class="partner-grid">
+      <div class="partner">
+        <div class="ptag">路徑 A ｜ 長照系統</div>
+        <h3>撥 1966（不需身障證明）</h3>
+        <ul class="plist">
+          <li>撥打 <b>1966 長照服務專線</b>（或洽當地長照管理中心）</li>
+          <li><b>照管專員到府評估</b>失能程度，確認需要等級（第 2～8 級）與可用額度</li>
+          <li>持核定函，向<b>長照特約輔具廠商</b>購買或租賃</li>
+          <li>完成核銷（評估報告多為 6 個月內有效）</li>
+        </ul>
+      </div>
+      <div class="partner sage">
+        <div class="ptag">路徑 B ｜ 身障系統</div>
+        <h3>持身心障礙證明申請</h3>
+        <ul class="plist">
+          <li>由<b>醫院或輔具中心開立輔具評估報告</b></li>
+          <li>到<b>戶籍地公所／社會局或輔具資源中心</b>提出申請</li>
+          <li>核定後購買指定輔具，再檢據核銷</li>
+          <li>適用 GPS 定位器、服藥提醒盒等項目</li>
+        </ul>
+      </div>
+    </div>
+    <div class="subsidy" style="margin-top:14px"><div class="sub-ic">🏢</div><div><b>善用「輔具資源中心」：</b>全台<b>各縣市都設有輔具資源中心</b>，可<b>免費</b>提供輔具評估、諮詢與現場體驗。哪些產品有補助、規格怎麼挑、適不適配，帶著需求去問最準；杏一等<b>特約門市</b>也可預約體驗。</div></div>
+    <div class="warn-box">⚠️ 務必向<b>政府特約的合法輔具廠商</b>購買／租賃才能核銷；金額、項目與資格各縣市略有差異。最快做法：先撥 <b>1966</b> 或洽戶籍地<b>輔具資源中心</b>確認最新規定。</div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="slide" id="s4">
+  <div class="slide-inner">
+    <span class="kicker">互動比較表 ｜ 怎麼選工具</span>
+    <h2>數位照護工具，哪個適合你家的狀況？</h2>
+    <p>先想想你<b>最擔心的事情</b>是什麼，再用下面的篩選看看對應工具。</p>
+    <div class="filter-row" id="filterRow">
+      <button class="active" data-f="all" onclick="filterTools(this)">全部</button>
+      <button data-f="fall" onclick="filterTools(this)">怕跌倒沒人知</button>
+      <button data-f="med" onclick="filterTools(this)">怕忘記吃藥</button>
+      <button data-f="lost" onclick="filterTools(this)">怕走失外出</button>
+      <button data-f="daily" onclick="filterTools(this)">想掌握日常作息</button>
+    </div>
+    <table class="ctable">
+      <thead><tr><th>工具類型</th><th>能解決的擔心</th><th>適合情境</th><th>留意事項</th></tr></thead>
+      <tbody id="ctbody">
+        <tr data-cat="fall daily"><td>跌倒偵測 / 動作感測器</td><td><span class="tag c">跌倒即時通知</span></td><td>長輩白天獨居、行動較不穩</td><td>需安裝與網路，注意誤報設定</td></tr>
+        <tr data-cat="fall"><td>緊急呼叫鈕 / 警報拉繩</td><td><span class="tag c">緊急時一鍵求助</span></td><td>意識清楚、能主動按鈕者</td><td>失智較重者可能不會使用</td></tr>
+        <tr data-cat="med"><td>智慧藥盒 / 服藥提醒 App</td><td><span class="tag c">按時吃藥、記錄拆藥</span></td><td>需定時服藥、常忘記者</td><td>仍需有人協助補藥與確認</td></tr>
+        <tr data-cat="lost"><td>GPS 定位手錶 / 協尋裝置</td><td><span class="tag c">外出定位、走失協尋</span></td><td>會自行外出、有走失風險</td><td>需充電，長輩是否願意配戴</td></tr>
+        <tr data-cat="daily"><td>視訊關懷 / 線上照護平台</td><td><span class="tag s">日常互動、彙整資料</span></td><td>想規律關心、看見趨勢</td><td>長輩需會接視訊或有人協助</td></tr>
+        <tr data-cat="daily"><td>生理量測裝置（血壓/血糖）</td><td><span class="tag s">健康數據追蹤</span></td><td>有慢性病需長期監測</td><td>數據需有人判讀與回應</td></tr>
+      </tbody>
+    </table>
+    <div class="foot">💡 工具只是「眼睛和耳朵」，真正讓守護成立的，是異常發生時<b>有人能及時介入</b>。</div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="slide" id="s5">
+  <div class="slide-inner">
+    <span class="kicker">CHAPTER 03 ｜ 如何有效運用</span>
+    <h2>把工具變成真正的守護，4 個關鍵</h2>
+    <div class="takeaway">
+      <div><b>① 從風險出發，不從產品出發</b>　先列出你最擔心的 1～2 件事（跌倒？走失？沒吃藥？），再選對應工具。</div>
+      <div><b>② 設定清楚的「通知對象與流程」</b>　異常時通知誰、誰先處理、聯絡不到怎麼辦，先講好。</div>
+      <div><b>③ 讓長輩願意用、用得來</b>　介面要簡單、配戴要舒適，陪他練習幾次，建立習慣。</div>
+      <div><b>④ 定期檢視與調整</b>　每隔一段時間看資料、調整提醒，照顧狀況會變，工具設定也要跟著變。</div>
+    </div>
+    <div class="empathy" style="margin-top:22px">數位工具讓你<strong>「不在身邊，也能即時掌握」</strong>；但別忘了，它需要搭配在地的人，守護才完整。</div>
+  </div>
+</section>
+
+<!-- SCENARIO CASES -->
+<section class="slide" id="s6">
+  <div class="slide-inner">
+    <span class="kicker">互動案例 ｜ 數位＋在地的結合</span>
+    <h2>真實情境這樣做：點開看完整守護流程</h2>
+    <p>單靠數位工具偵測到異常還不夠，<span class="hl-sage">結合社區與在地資源</span>，才能在第一時間有人到現場。點開下面案例看看怎麼搭配。</p>
+
+    <div class="case" onclick="toggleCase(this)">
+      <div class="case-head"><span class="emo">🚶</span><span>案例一：獨居母親白天跌倒，子女在外地工作</span><span class="chev">⌄</span></div>
+      <div class="case-body"><div class="case-body-inner">
+        <div class="flow">
+          <div class="flow-step"><div class="num">1</div><p><b>數位偵測：</b>家中動作感測器偵測到長時間無活動／跌倒，自動推播通知子女手機。</p></div>
+          <div class="flow-step"><div class="num">2</div><p><b>遠端確認：</b>子女立即用視訊或電話確認狀況，判斷是否需要協助。</p></div>
+          <div class="flow-step local"><div class="num">3</div><p><b>在地介入：</b>聯絡事先約定好的<b>鄰居／里長／社區關懷據點</b>就近查看。</p></div>
+          <div class="flow-step local"><div class="num">4</div><p><b>必要時就醫：</b>由在地人協助或叫救護車，子女同步聯繫醫療單位。</p></div>
+        </div>
+        <div class="combo-note">🌿 關鍵：把「會跌倒沒人知」變成「跌倒幾分鐘內就有人到場」。</div>
+      </div></div>
+    </div>
+
+    <div class="case" onclick="toggleCase(this)">
+      <div class="case-head"><span class="emo">💊</span><span>案例二：失智父親常忘記吃藥，週末才能返家</span><span class="chev">⌄</span></div>
+      <div class="case-body"><div class="case-body-inner">
+        <div class="flow">
+          <div class="flow-step"><div class="num">1</div><p><b>數位提醒：</b>智慧藥盒到時間發出聲光提醒，未拆藥則通知家人。</p></div>
+          <div class="flow-step"><div class="num">2</div><p><b>遠端關懷：</b>子女收到「未服藥」通知後，視訊提醒父親吃藥。</p></div>
+          <div class="flow-step local"><div class="num">3</div><p><b>在地協助：</b>委請<b>居家服務員／送餐志工</b>到府時順道協助與確認服藥。</p></div>
+          <div class="flow-step local"><div class="num">4</div><p><b>定期盤點：</b>週末返家時補藥、檢視紀錄，與長照管理師討論調整。</p></div>
+        </div>
+        <div class="combo-note">🌿 關鍵：數位負責「提醒與記錄」，在地的人負責「補位與確認」。</div>
+      </div></div>
+    </div>
+
+    <div class="case" onclick="toggleCase(this)">
+      <div class="case-head"><span class="emo">📍</span><span>案例三：輕度失智長輩會自行外出，家屬擔心走失</span><span class="chev">⌄</span></div>
+      <div class="case-body"><div class="case-body-inner">
+        <div class="flow">
+          <div class="flow-step"><div class="num">1</div><p><b>數位定位：</b>配戴 GPS 定位裝置，設定安全範圍，越界自動通知。</p></div>
+          <div class="flow-step"><div class="num">2</div><p><b>即時掌握：</b>家屬手機可隨時查看位置，異常立即聯繫。</p></div>
+          <div class="flow-step local"><div class="num">3</div><p><b>在地網絡：</b>事先向<b>社區、商家、派出所</b>建立協尋默契，必要時通報。</p></div>
+          <div class="flow-step local"><div class="num">4</div><p><b>預防準備：</b>申請防走失手鍊、加入愛心手鍊／指紋建檔等在地資源。</p></div>
+        </div>
+        <div class="combo-note">🌿 關鍵：定位讓你「看得到」，在地網絡讓你「找得回」。</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section class="slide" id="s7">
+  <div class="slide-inner">
+    <span class="kicker">互動清單 ｜ 守護檢核</span>
+    <h2>遠距照顧守護檢核清單</h2>
+    <div class="chk-intro">勾選你<b>已經做到</b>的項目，看看你的守護網還缺哪幾塊。可邊聽課邊勾選。</div>
+
+    <div class="chk-group">
+      <h3>🩺 數位工具面</h3>
+      <div class="chk" onclick="toggleChk(this)"><div class="tick">✓</div><div class="ctext">已針對最擔心的風險，選用至少一項數位照護工具</div></div>
+      <div class="chk" onclick="toggleChk(this)"><div class="tick">✓</div><div class="ctext">工具能在「異常時主動通知」我，而不只是被動記錄</div></div>
+      <div class="chk" onclick="toggleChk(this)"><div class="tick">✓</div><div class="ctext">長輩願意使用／配戴，且已陪他練習過</div></div>
+    </div>
+
+    <div class="chk-group">
+      <h3>🤝 在地資源面</h3>
+      <div class="chk" onclick="toggleChk(this)"><div class="tick">✓</div><div class="ctext">知道住家附近的社區關懷據點／長照服務窗口</div></div>
+      <div class="chk" onclick="toggleChk(this)"><div class="tick">✓</div><div class="ctext">已有可就近查看的人（鄰居／里長／親友）並交換聯絡方式</div></div>
+      <div class="chk" onclick="toggleChk(this)"><div class="tick">✓</div><div class="ctext">已善用居家服務、送餐、共餐等在地照顧資源</div></div>
+    </div>
+
+    <div class="chk-group">
+      <h3>📋 流程與心理面</h3>
+      <div class="chk" onclick="toggleChk(this)"><div class="tick">✓</div><div class="ctext">異常發生時的「通知＋處理流程」已和家人講清楚</div></div>
+      <div class="chk" onclick="toggleChk(this)"><div class="tick">✓</div><div class="ctext">會定期檢視資料並調整照顧方式</div></div>
+      <div class="chk" onclick="toggleChk(this)"><div class="tick">✓</div><div class="ctext">我也照顧自己的情緒，知道照顧不必、也不該獨自承擔</div></div>
+    </div>
+
+    <div class="chk-bar"><div id="chkBar"></div></div>
+    <div class="chk-count" id="chkCount">已完成 0 / 9 項</div>
+  </div>
+</section>
+
+<!-- PARTNER RESOURCES -->
+<section class="slide" id="s7b">
+  <div class="slide-inner">
+    <span class="kicker">延伸資源 ｜ 本課夥伴能幫你什麼</span>
+    <h2>遠距照顧，下一步去哪找資源？</h2>
+    <p class="lead">本課程的兩個夥伴角色剛好互補：一個顧「<span class="hl">數據與知識</span>」，一個顧「<span class="hl">設備與補助</span>」。</p>
+    <div class="partner-grid">
+      <div class="partner">
+        <div class="ptag">數位平台 ｜ 遠距諮詢</div>
+        <h3>WaCare（本課程平台）</h3>
+        <ul class="plist">
+          <li>失智照護<b>遠距課程與健康社群</b>（如與 udn 合作的「照亮失智路」系列）：專家線上分享與諮詢、家屬經驗交流、課後專屬討論區</li>
+          <li>串接健保署<b>「健康存摺」</b>，整合就醫、檢驗、用藥等 80＋ 健康指標</li>
+          <li>可連接多種 <b>AIoT 穿戴／量測裝置</b>，並以 AI 做健康風險預測</li>
+          <li>生態圈逾 500 個社區、1,600＋ 醫療專家</li>
+        </ul>
+      </div>
+      <div class="partner sage">
+        <div class="ptag">實體輔具 ｜ 補助管道</div>
+        <h3>杏一醫療（公益贊助）</h3>
+        <ul class="plist">
+          <li>全台<b>輔具補助特約商店</b>：協助申請長照／身障輔具補助，門市可諮詢體驗</li>
+          <li><b>數位照顧儲值卡＋LINE／APP 線上預約</b>：外地子女可線上幫家鄉長輩備齊用品</li>
+          <li>社區<b>「百里關懷」健檢與輔具體驗</b>（全台 450＋ 場），結合在地資源</li>
+          <li>全台醫療用品連鎖，3 萬＋ 品項醫材與照護用品</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reslinks">
+      📌 <b>想進一步了解：</b>WaCare 數位健康平台（App／course.wacare.live）　｜　杏一服務專線 <b>0800-028-328</b>（24 小時免付費）／全台門市
+    </div>
+    <div class="warn-box" style="margin-top:12px">以上服務內容整理自公開資訊，實際項目與補助申請方式可能調整，請以 WaCare、杏一及各縣市長照管理中心（1966）正式公告為準。</div>
+  </div>
+</section>
+
+<!-- POST-COURSE KNOWLEDGE CHECK -->
+<section class="slide" id="s7c">
+  <div class="slide-inner">
+    <span class="kicker">課後互動 ｜ 學習成效檢核</span>
+    <h2>小測驗：今天的重點，你掌握了嗎？</h2>
+    <p class="lead">5 題選擇題，點選答案會立刻告訴你對不對與原因。最後看看你的成效。</p>
+
+    <div class="kq" data-correct="1">
+      <p class="kq-q">Q1. GPS 手錶要能「即時回傳長輩位置」給你，必須具備什麼？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">只要能收到 GPS 衛星訊號就好</button>
+        <button onclick="kPick(this,1)">還要有行動網路／SIM 才能把位置傳出去</button>
+        <button onclick="kPick(this,2)">只要藍牙就能傳給你</button>
+        <button onclick="kPick(this,3)">完全不需要任何網路</button>
+      </div>
+      <div class="kq-fb" data-fb="GPS 只負責「算出自己在哪」，要把座標傳回你的手機需要行動網路，所以純 GPS 仍需 SIM／月租。"></div>
+    </div>
+
+    <div class="kq" data-correct="1">
+      <p class="kq-q">Q2. AirTag、Tile 這類「藍牙標籤」的定位特性是？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">內建 GPS，可主動即時定位</button>
+        <button onclick="kPick(this,1)">被動協尋，要靠周邊有別人的手機經過才知道位置</button>
+        <button onclick="kPick(this,2)">一定要付月租費</button>
+        <button onclick="kPick(this,3)">定位比 GPS 手錶更即時準確</button>
+      </div>
+      <div class="kq-fb" data-fb="藍牙標籤本身沒有 GPS、不上網，是「被動協尋」；人少、沒人經過的地方就可能抓不到。"></div>
+    </div>
+
+    <div class="kq" data-correct="2">
+      <p class="kq-q">Q3. 長照 3.0 自 2026 年 7 月起新增的補助項目是？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">看護費用全額補助</button>
+        <button onclick="kPick(this,1)">每月發放現金給家屬</button>
+        <button onclick="kPick(this,2)">全租賃智慧科技輔具（每 3 年最高 6 萬元）</button>
+        <button onclick="kPick(this,3)">免費贈送智慧手錶</button>
+      </div>
+      <div class="kq-fb" data-fb="長照 3.0 新增「全租賃智慧科技輔具」，含安全看視（離床、走失監測）等，須經 1966 評估、與傳統輔具二擇一。"></div>
+    </div>
+
+    <div class="kq" data-correct="2">
+      <p class="kq-q">Q4. 一套「完整」的遠距守護，應該是？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">只要買最貴的數位工具就好</button>
+        <button onclick="kPick(this,1)">完全靠鄰居和運氣</button>
+        <button onclick="kPick(this,2)">數位偵測 ＋ 在地有人能及時介入</button>
+        <button onclick="kPick(this,3)">每天打很多通電話確認</button>
+      </div>
+      <div class="kq-fb" data-fb="工具是眼睛和耳朵，異常發生時仍要有在地的人能到場，數位＋在地才是完整守護。"></div>
+    </div>
+
+    <div class="kq" data-correct="1">
+      <p class="kq-q">Q5. 在台灣家庭中，最常用、長輩最沒門檻的視訊關懷工具是？</p>
+      <div class="kq-opts">
+        <button onclick="kPick(this,0)">Google Meet</button>
+        <button onclick="kPick(this,1)">LINE 視訊</button>
+        <button onclick="kPick(this,2)">Zoom</button>
+        <button onclick="kPick(this,3)">Skype</button>
+      </div>
+      <div class="kq-fb" data-fb="台灣家庭最常用 LINE 視訊，幾乎人人會用；Google Meet、Zoom 多用於課程或多人會議。"></div>
+    </div>
+
+    <div style="text-align:center"><button class="btn sage" onclick="kScore()">看我的學習成效 →</button></div>
+    <div class="quiz-result" id="kResult"></div>
+  </div>
+</section>
+
+<!-- POST-COURSE SLIDO -->
+<section class="slide" id="s7d">
+  <div class="slide-inner">
+    <span class="kicker">課後調查 ｜ Slido 即時互動</span>
+    <h2>最後，想聽聽你的想法</h2>
+    <p class="lead">上完課，對數位照顧工具有什麼<b>建議或想法</b>？歡迎在 <b>Slido</b> 留言，你的回饋能幫助課程與工具做得更好。</p>
+    <div class="slido-label">💬 你對數位照顧工具有什麼建議或想法？</div>
+    <div class="slido-wrap"><iframe src="https://app.sli.do/event/5tLBbrm2aMQUsLNfmupseE/embed/polls/a82db5c1-40a6-407b-8222-fdedf42b627c" title="Slido 課後回饋" loading="lazy" allow="clipboard-write"></iframe></div>
+    <div class="foot">※ Slido 即時互動，需連線；留言會即時顯示於畫面。</div>
+  </div>
+</section>
+
+<!-- TAKEAWAYS + THANKS -->
+<section class="slide" id="s8">
+  <div class="slide-inner">
+    <span class="kicker">重點回顧 ｜ 帶走這幾句話</span>
+    <h2>讓照顧，從「擔心」走向「安心」</h2>
+    <div class="takeaway">
+      <div>距離不該成為照顧的斷點，<b>數位工具讓你不在身邊也能即時掌握</b>。</div>
+      <div>選工具<b>從風險出發</b>，先解決你最擔心的那一件事。</div>
+      <div>真正完整的守護＝<b>數位偵測 ＋ 在地有人能及時介入</b>。</div>
+      <div>用檢核清單<b>定期盤點守護網</b>，缺哪塊補哪塊。</div>
+    </div>
+
+    <div class="prep">
+      <h3>🔔 上課前小提醒（軟體準備）</h3>
+      <ul>
+        <li>下載 <b>WaCare</b> 與 <b>Google Meet</b> App</li>
+        <li>註冊成為 WaCare 會員</li>
+        <li>本課程為線上直播，請事先安裝完成以利順利上課</li>
+      </ul>
+    </div>
+
+    <div class="thanks">
+      <div class="logo">🎗️</div>
+      <h2>特別感謝 杏一醫療用品 公益贊助</h2>
+      <p>感謝杏一長期關注高齡照護與家庭照顧需求，致力提供專業醫療照護用品與健康服務，<br>希望協助照顧者減輕負擔，打造更安心、便利且有溫度的照護生活。</p>
+      <p style="margin-top:10px;color:var(--warm-brown2);font-weight:700">講師：鍾孟修 職能治療師　｜　主辦：WaCare</p>
+    </div>
+    <div class="foot">主辦單位保有最終修改、變更、活動解釋及取消本活動之權利。</div>
+  </div>
+</section>
+
+</main>
+
+<div id="deck-nav">
+  <button id="prevBtn" onclick="go(-1)">← 上一頁</button>
+  <span class="page" id="pageInd">1 / 9</span>
+  <button id="nextBtn" onclick="go(1)">下一頁 →</button>
+</div>
+
+<script>
+/* ---------- mode toggle ---------- */
+let mode='scroll', cur=0;
+const slides=[...document.querySelectorAll('.slide')];
+function setMode(m){
+  mode=m;
+  document.getElementById('m-scroll').classList.toggle('active',m==='scroll');
+  document.getElementById('m-deck').classList.toggle('active',m==='deck');
+  document.body.classList.toggle('deck',m==='deck');
+  if(m==='deck'){showSlide(cur);window.scrollTo(0,0);}
+  else{slides.forEach(s=>s.classList.remove('current'));}
+}
+function showSlide(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,idx)=>s.classList.toggle('current',idx===cur));
+  document.getElementById('pageInd').textContent=(cur+1)+' / '+slides.length;
+  document.getElementById('prevBtn').disabled=cur===0;
+  document.getElementById('nextBtn').disabled=cur===slides.length-1;
+  document.getElementById('progress').style.width=((cur+1)/slides.length*100)+'%';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function go(d){showSlide(cur+d);}
+document.addEventListener('keydown',e=>{
+  if(mode!=='deck')return;
+  if(e.key==='ArrowRight')go(1);
+  if(e.key==='ArrowLeft')go(-1);
+});
+
+/* ---------- scroll progress ---------- */
+window.addEventListener('scroll',()=>{
+  if(mode==='deck')return;
+  const h=document.documentElement;
+  const p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+  document.getElementById('progress').style.width=p+'%';
+});
+
+/* ---------- quiz ---------- */
+function ans(btn,val){
+  const yn=btn.parentElement;
+  yn.querySelectorAll('button').forEach(b=>b.classList.remove('sel-y','sel-n'));
+  btn.classList.add(val?'sel-y':'sel-n');
+  yn.dataset.val=val;
+}
+function scoreQuiz(){
+  const items=[...document.querySelectorAll('#quiz .yn')];
+  const answered=items.filter(y=>y.dataset.val!==undefined);
+  if(answered.length<items.length){
+    const r=document.getElementById('quizResult');
+    r.innerHTML='<div class="verdict">還有 '+(items.length-answered.length)+' 題尚未作答，請先點選「是 / 否」喔 🙂</div>';
+    r.classList.add('show');return;
+  }
+  const n=items.filter(y=>y.dataset.val==='1').length;
+  let v,msg,emo;
+  if(n<=1){v='守護網已具雛形';emo='🌳';msg='你已有不錯的照顧基礎！再補強通知流程與在地資源，就更安心了。';}
+  else if(n<=3){v='守護有缺口';emo='🌤️';msg='你已經很努力，但仍有靠「運氣」的部分。今天的數位工具與在地資源，正好補上這些缺口。';}
+  else{v='高度依賴運氣與擔心';emo='⛅';msg='目前的照顧多半靠擔心與臨時應變，壓力一定很大。別擔心—這堂課就是要把「靠運氣」換成「有系統地掌握」。';}
+  const r=document.getElementById('quizResult');
+  r.innerHTML='<div class="score">'+emo+' '+n+' / 6</div><div class="verdict">'+v+'</div><p style="margin:0">'+msg+'</p>';
+  r.classList.add('show');
+  r.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* ---------- pre-course survey ---------- */
+let surveyLevel='';
+function surveyPick(btn,level){
+  const box=btn.parentElement;
+  if(box.dataset.single){
+    box.querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    if(level) surveyLevel=level;
+  } else {
+    btn.classList.toggle('on');
+  }
+}
+function surveyDone(){
+  const msgByLevel={
+    low:'別擔心 3C 不熟，本課每個工具都會用最白話的方式說明，也會教你怎麼找人協助設定。',
+    mid:'你已有基本基礎，課程會幫你把工具「對應到風險」，選得更精準。',
+    high:'你上手快，課程會多帶你看「數位＋在地結合」的進階搭配與補助資源。'
+  };
+  const tail=surveyLevel?msgByLevel[surveyLevel]:'課程會帶你從「最擔心的風險」開始，一步步建立守護網。';
+  const r=document.getElementById('surveyResult');
+  r.innerHTML='<div class="verdict">✅ 老師收到你的狀況了！</div><p style="margin:0">'+tail+'</p>';
+  r.classList.add('show');
+  r.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* ---------- post-course knowledge check ---------- */
+function kPick(btn,idx){
+  const kq=btn.closest('.kq');
+  if(kq.dataset.done) return;
+  kq.dataset.done='1';
+  const correct=parseInt(kq.dataset.correct,10);
+  const btns=kq.querySelectorAll('.kq-opts button');
+  btns.forEach((b,i)=>{b.disabled=true; if(i===correct) b.classList.add('correct');});
+  if(idx!==correct) btn.classList.add('wrong');
+  kq.dataset.right = (idx===correct)?'1':'0';
+  const fb=kq.querySelector('.kq-fb');
+  fb.innerHTML=(idx===correct?'<b>答對了！</b> ':'<b>正解如上。</b> ')+fb.dataset.fb;
+  fb.classList.add('show');
+}
+function kScore(){
+  const qs=[...document.querySelectorAll('#s7c .kq')];
+  const done=qs.filter(q=>q.dataset.done);
+  if(done.length<qs.length){
+    const r=document.getElementById('kResult');
+    r.innerHTML='<div class="verdict">還有 '+(qs.length-done.length)+' 題沒作答，先點選答案再看成效喔 🙂</div>';
+    r.classList.add('show');return;
+  }
+  const n=qs.filter(q=>q.dataset.right==='1').length;
+  let emo,v,msg;
+  if(n===5){emo='🏆';v='全對，太厲害了！';msg='你完全掌握了遠距照顧的關鍵觀念，可以開始幫長輩建立守護網了。';}
+  else if(n>=3){emo='👍';v='掌握得不錯！';msg='大方向都對了，答錯的題目回看一下對應章節就更完整。';}
+  else{emo='🌱';v='再複習一下會更好';msg='沒關係，重點都在講義裡，挑答錯的章節再看一次，很快就會了。';}
+  const r=document.getElementById('kResult');
+  r.innerHTML='<div class="score">'+emo+' '+n+' / 5</div><div class="verdict">'+v+'</div><p style="margin:0">'+msg+'</p>';
+  r.classList.add('show');
+  r.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* ---------- tool filter ---------- */
+function filterTools(btn){
+  document.querySelectorAll('#filterRow button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const f=btn.dataset.f;
+  document.querySelectorAll('#ctbody tr').forEach(tr=>{
+    tr.classList.toggle('hide', f!=='all' && !tr.dataset.cat.includes(f));
+  });
+}
+
+/* ---------- cases ---------- */
+function toggleCase(el){el.classList.toggle('open');}
+
+/* ---------- checklist ---------- */
+function toggleChk(el){
+  el.classList.toggle('done');
+  const total=document.querySelectorAll('.chk').length;
+  const done=document.querySelectorAll('.chk.done').length;
+  document.getElementById('chkBar').style.width=(done/total*100)+'%';
+  let extra='';
+  if(done===total)extra='　🎉 太棒了，你的守護網很完整！';
+  else if(done>=6)extra='　👍 已具備良好基礎，再補齊幾項就更安心。';
+  document.getElementById('chkCount').textContent='已完成 '+done+' / '+total+' 項'+extra;
+}
+</script>
+</body>
+</html>
