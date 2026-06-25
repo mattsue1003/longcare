@@ -160,6 +160,19 @@ p{font-size:16.5px;margin-bottom:14px}
 .slido-wrap{margin:0 0 8px;border-radius:16px;overflow:hidden;box-shadow:0 8px 20px var(--shadow);background:#fff;border:1px solid var(--cream2)}
 .slido-wrap iframe{width:100%;height:430px;border:0;display:block}
 
+/* ---------- Q&A cheat sheet ---------- */
+.qa-theme{font-weight:900;color:var(--coral-deep);margin:18px 0 10px;font-size:16.5px;padding-left:10px;border-left:5px solid var(--gold)}
+.qa-item{background:var(--cream);border-radius:16px;margin-bottom:10px;overflow:hidden;border:1px solid var(--cream2)}
+.qa-head{padding:15px 18px;cursor:pointer;display:flex;gap:12px;align-items:flex-start;font-weight:800;font-size:15.5px;color:var(--warm-brown)}
+.qa-head .qn{background:var(--coral);color:#fff;border-radius:8px;padding:2px 9px;font-size:13px;flex-shrink:0;font-weight:900}
+.qa-head .chev{margin-left:auto;color:var(--coral);font-size:18px;transition:.3s}
+.qa-item.open .chev{transform:rotate(180deg)}
+.qa-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.qa-item.open .qa-body{max-height:1800px}
+.qa-body-inner{padding:2px 18px 18px;font-size:14.5px;line-height:1.9;color:var(--warm-brown)}
+.qa-body-inner .ans{display:block;background:#E9F2E6;border-radius:12px;padding:12px 16px;color:var(--sage-deep);font-weight:700;margin-top:4px}
+.qa-body-inner b{color:var(--coral-deep)}
+
 /* ---------- knowledge check ---------- */
 .kq{background:var(--cream);border-radius:18px;padding:18px 22px;margin-bottom:14px}
 .kq-q{font-size:16.5px;font-weight:800;margin-bottom:12px;color:var(--warm-brown)}
@@ -509,8 +522,8 @@ body.deck #deck-nav{display:flex}
     <h3>① 定位手錶／裝置的差異</h3>
     <div class="cmp">
       <div class="cmp-row head"><div>類型</div><div>定位原理</div><div>特性與適用</div></div>
-      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Smartwatch-828786.jpg/240px-Smartwatch-828786.jpg" alt="GPS定位手錶示意" loading="lazy"><b>GPS 定位手錶</b><span class="mini">需 4G／月租</span></div><div>衛星定位＋行動網路回傳，可<b>主動即時</b>查看位置</div><div>會自行外出、走失風險高者首選；待機約 3～5 天需常充電，每月約百元電信費</div></div>
-      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Airtag_-_6.jpg/240px-Airtag_-_6.jpg" alt="藍牙標籤 AirTag 示意" loading="lazy"><b>藍牙/Wi-Fi 輔助定位</b><span class="mini">如 AirTag、Tile、SmartTag</span></div><div>靠周邊大量手機「順路回報」位置，屬<b>被動協尋</b></div><div>輕巧便宜、鈕扣電池可用約一年、免月租；但無網路時不會主動回報，距離近才偵測得到</div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoHGpd8NLNbijYPGgAv8o4NyP_zx7BGPUO8DWl2iPokkhMT4kkRR34Wcmx&s=10" alt="GPS定位手錶示意" loading="lazy" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Smartwatch-828786.jpg/240px-Smartwatch-828786.jpg';"><b>GPS 定位手錶</b><span class="mini">需 4G／月租</span></div><div>衛星定位＋行動網路回傳，可<b>主動即時</b>查看位置</div><div>會自行外出、走失風險高者首選；待機約 3～5 天需常充電，每月約百元電信費</div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://img.pchome.com.tw/cs/items/DYAFDHA900IS210/000001_1753061873.jpg?width=320" alt="藍牙/Wi-Fi 輔助定位示意" loading="lazy" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Airtag_-_6.jpg/240px-Airtag_-_6.jpg';"><b>藍牙/Wi-Fi 輔助定位</b><span class="mini">如 AirTag、Tile、SmartTag</span></div><div>靠周邊大量手機「順路回報」位置，屬<b>被動協尋</b></div><div>輕巧便宜、鈕扣電池可用約一年、免月租；但無網路時不會主動回報，距離近才偵測得到</div></div>
     </div>
     <p style="margin-top:10px;font-size:15px;color:var(--warm-brown2)">
       <b>AirTag、Tile、Samsung/Google SmartTag</b> 與 GPS 手錶的根本差別：前者都是<span class="hl">藍牙標籤</span>，本身不含 GPS、不上網，要靠別人的手機經過才知道位置（被動協尋）；GPS 手錶則能<span class="hl">自己定位、主動回傳</span>，你隨時打開就看得到（主動定位）。
@@ -618,10 +631,10 @@ body.deck #deck-nav{display:flex}
     </figure>
     <div class="cmp">
       <div class="cmp-row head"><div>類型</div><div>怎麼運作</div><div>適用與留意</div></div>
-      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Smartwatch-828786.jpg/240px-Smartwatch-828786.jpg" alt="穿戴式跌倒偵測手錶示意" loading="lazy"><b>穿戴式跌倒偵測</b><span class="mini">手錶／墜飾</span></div><div>長輩隨身配戴，內建感測器偵測跌倒、姿勢驟變，多附一鍵 SOS，自動通知家人</div><div>外出、在家都能用；但需長輩<b>願意配戴、記得充電</b></div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://www.hi-time.com.tw/archive/image/product1/WiFi/wifi_web-1-1.jpg" alt="穿戴式跌倒偵測示意" loading="lazy" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Smartwatch-828786.jpg/240px-Smartwatch-828786.jpg';"><b>穿戴式跌倒偵測</b><span class="mini">手錶／墜飾</span></div><div>長輩隨身配戴，內建感測器偵測跌倒、姿勢驟變，多附一鍵 SOS，自動通知家人</div><div>外出、在家都能用；但需長輩<b>願意配戴、記得充電</b></div></div>
       <div class="cmp-row"><div><b>環境式跌倒偵測</b><span class="mini">雷達／紅外線</span></div><div>裝在天花板或牆面，以雷達電波或紅外線偵測跌倒、長時間倒地不起</div><div><b>免配戴、不打擾</b>，隱私佳（非攝影）；需安裝、設定正常範圍以免誤報</div></div>
       <div class="cmp-row"><div><b>長時間無活動偵測</b><span class="mini">離床／門磁／水電感測</span></div><div>偵測長時間沒有起床、沒開門、沒用水用電，研判是否異常</div><div>不需長輩操作，最不打擾；適合作息規律者，需先設定正常範圍</div></div>
-      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Seniofon_1000-A_Hausnotrufger%C3%A4t_mit_Handsender.png/240px-Seniofon_1000-A_Hausnotrufger%C3%A4t_mit_Handsender.png" alt="緊急呼叫鈕示意" loading="lazy"><b>緊急呼叫鈕</b><span class="mini">隨身／牆面拉繩</span></div><div>長輩主動按鈕／拉繩，連線 24 小時監控中心或家人</div><div>意識清楚、能主動求助者；<b>獨居長者多有地方政府「緊急救援系統」補助</b>（詳見補助頁）</div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://img.pchome.com.tw/cs/items/DQBS4DA900HZFNA/000001_1729734000.jpg?width=640" alt="緊急呼叫鈕示意" loading="lazy" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Seniofon_1000-A_Hausnotrufger%C3%A4t_mit_Handsender.png/240px-Seniofon_1000-A_Hausnotrufger%C3%A4t_mit_Handsender.png';"><b>緊急呼叫鈕</b><span class="mini">隨身／牆面拉繩</span></div><div>長輩主動按鈕／拉繩，連線 24 小時監控中心或家人</div><div>意識清楚、能主動求助者；<b>獨居長者多有地方政府「緊急救援系統」補助</b>（詳見補助頁）</div></div>
       <div class="cmp-row"><div><b>安全看視攝影</b><span class="mini">居家鏡頭</span></div><div>遠端查看居家畫面，部分具離床、跌倒 AI 警示</div><div>能即時確認，但<b>須留意長輩隱私與意願</b>，避免裝在私密空間</div></div>
     </div>
     <div class="combo-note" style="margin-top:14px;background:#EAF2F4;color:#3F6B7D">🛡️ 隱私小知識：<b>雷達／紅外線屬「非影像」偵測</b>——靠無線電波或熱感判斷跌倒，<b>不會拍到長輩的樣貌</b>，所以能裝在<b>浴室、臥室</b>等不適合裝鏡頭的空間；對薄浴簾／布簾穿透力較好，多隔著簾子仍可運作。</div>
@@ -697,7 +710,7 @@ body.deck #deck-nav{display:flex}
     </figure>
     <div class="cmp">
       <div class="cmp-row head"><div>類型</div><div>怎麼運作</div><div>適用與留意</div></div>
-      <div class="cmp-row"><div><img class="thumb-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Heptagonal_objects_A_weekly_medicine_box_846A60E4-A96F-4D2C-B010-FDB950E1DA4A.jpg/240px-Heptagonal_objects_A_weekly_medicine_box_846A60E4-A96F-4D2C-B010-FDB950E1DA4A.jpg" alt="智慧藥盒示意" loading="lazy"><b>智慧藥盒</b><span class="mini">聲光＋通知</span></div><div>到時間發出聲光提醒；未拆／未取藥則推播通知家人</div><div>需定時服藥、常忘記者；仍需有人定期補藥</div></div>
+      <div class="cmp-row"><div><img class="thumb-img" src="https://www.ilong-termcare.com/uploads/photos/shares/dbo-articles/f15e7469-8cd7-41de-b2eb-3a12f8b198d0.jpg" alt="智慧藥盒示意" loading="lazy" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Heptagonal_objects_A_weekly_medicine_box_846A60E4-A96F-4D2C-B010-FDB950E1DA4A.jpg/240px-Heptagonal_objects_A_weekly_medicine_box_846A60E4-A96F-4D2C-B010-FDB950E1DA4A.jpg';"><b>智慧藥盒</b><span class="mini">聲光＋通知</span></div><div>到時間發出聲光提醒；未拆／未取藥則推播通知家人</div><div>需定時服藥、常忘記者；仍需有人定期補藥</div></div>
       <div class="cmp-row"><div><b>提醒 App／語音助理</b><span class="mini">手機／智慧音箱</span></div><div>設定吃藥、回診、喝水等定時語音或訊息提醒</div><div>成本低、好上手；長輩需聽得到、看得懂或有人協助</div></div>
       <div class="cmp-row"><div><b>作息／活動感測</b><span class="mini">穿戴或環境</span></div><div>記錄睡眠、起床、活動量，呈現作息趨勢供家人觀察</div><div>幫助及早發現作息混亂；數據需有人定期回看</div></div>
     </div>
@@ -1137,6 +1150,122 @@ body.deck #deck-nav{display:flex}
 
     <div style="text-align:center"><button class="btn sage" onclick="kScore()">看我的學習成效 →</button></div>
     <div class="quiz-result" id="kResult"></div>
+  </div>
+</section>
+
+<!-- QA CHEAT SHEET 1 -->
+<section class="slide" id="s7qa1">
+  <div class="slide-inner">
+    <span class="kicker">課後 QA ｜ 現場小抄（1/4）</span>
+    <h2>民眾常見 10 大疑問．職能治療師專業應答</h2>
+    <p class="lead">點開每一題看「鍾老師」的在地化解答，課後 QA 時間可直接照著回應。</p>
+
+    <div class="qa-theme">一、長輩排斥、隱私與尊嚴</div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q1</span><span>買了定位手錶，爸爸覺得被監控，一戴就拔掉怎麼辦？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">同理長輩「不想被標籤化」的抗拒。換個溝通方式，包裝成「<b>送禮物</b>」或「科技新玩意」：「爸，這是孫子挑給你的<b>防走失計步手錶</b>，可以看你一天走幾步喔！」（順便開啟 GPS）。若仍排斥戴手上，改用「<b>防走失鞋墊</b>」——長輩出門一定穿鞋，把定位器藏在鞋底夾層，不改變生活習慣，守護最到位。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q2</span><span>環境式雷達裝在浴室，長輩洗澡會不會有私密畫面外洩？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">請放一百個心，毫米波雷達是「<b>完全非影像、不拍畫面</b>」的。原理是發射微弱電波探測物體距離與移動，畫面上只顯示抽象的「<b>3D 點雲</b>」或方形色塊，看不到任何可辨識的五官或身體細節，洗澡、換衣都不會洩漏隱私。且能穿透薄浴簾，高溫蒸氣也不影響精準度，最適合裝在浴廁和臥室防跌。</span></div></div>
+    </div>
+
+    <div class="qa-theme">二、科技工具挑選與精準度</div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q3</span><span>AirTag 一千元有找又免月租，買給失智媽媽出門用就好？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">不一樣喔！AirTag 這類藍牙標籤屬「<b>被動協尋</b>」，本身沒有 GPS 晶片也不能自己上網，靠周邊他人的 iPhone 順路回報位置；偏僻、人煙稀少處定位就不會更新。高走失風險、會到處走的長輩，建議選「<b>GPS 定位手錶</b>」（內建 SIM、行動網路傳送、<b>主動即時定位</b>），隨時打開手機都看得到。兩者搭配：GPS 手錶為主、AirTag 縫在外套當備援。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q4</span><span>家裡很多房間，防跌倒環境式雷達需要每間都裝一台嗎？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">是的。微波雷達訊號會被「<b>實心磚牆或水泥牆</b>」阻擋或大幅衰減，單台有效偵測半徑通常只有 <b>2～3 公尺</b>，沒辦法一台顧全家，通常「<b>一個空間裝一台</b>」。建議優先裝在跌倒風險最高、又不能裝鏡頭的隱私死角——「浴室」與「臥室床邊」。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q5</span><span>微波雷達能偵測心跳、呼吸、睡眠品質嗎？準不準？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">是真的。「毫米波雷達（FMCW）」可非接觸偵測，長輩靜止時捕捉胸腔起伏與皮膚表面微幅震動，推算心跳與呼吸，<b>準確度達 90% 以上</b>；也能依呼吸與翻身頻率「推估」睡眠型態。但它<b>無法量測腦波</b>，精準度仍不及醫療設備。<br>追求更準：居家長期監測推薦「<b>智慧手錶／手環</b>」（光學心率血氧、演算法成熟）或「<b>智慧床墊／床墊下感應帶</b>」（壓電感測、直接接觸、數據資料更穩）；最準則是到醫院睡眠中心做 PSG。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q6</span><span>智慧藥盒時間到，長輩打開卻把藥偷偷丟掉怎麼辦？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">這確實是科技盲點——藥盒只能記錄「有沒有在時間內被開啟」。這時要啟動「<b>數位＋在地</b>」網格：收到開啟通知時，順手打個 <b>LINE 視訊</b>陪聊、親眼看他把藥吞下去；或結合長照<b>居服員、社區送餐志工</b>到府時，幫忙看桌上或垃圾桶有沒有被丟棄的藥丸。科技負責提醒，人力負責確認。</span></div></div>
+    </div>
+    <div class="foot">↓ 下一頁：法律紅線、監護宣告、補助與維運成本（Q7～Q10）↓</div>
+  </div>
+</section>
+
+<!-- QA CHEAT SHEET 2 -->
+<section class="slide" id="s7qa2">
+  <div class="slide-inner">
+    <span class="kicker">課後 QA ｜ 現場小抄（2/4）</span>
+    <h2>法律紅線、補助與維運成本</h2>
+
+    <div class="qa-theme">三、法律紅線、隱私糾紛與監護宣告</div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q7</span><span>沒經過長輩同意，可以偷偷幫他裝定位或攝影機嗎？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">法律上是有風險的！即使百分百出於愛與安全，未經同意擅自以工具竊錄、窺視或追蹤他人非公開活動，仍可能觸犯《<b>刑法第 315 條之 1</b> 妨害秘密罪》或違反《<b>個人資料保護法</b>》。實務上曾有子女在獨居母親房間偷裝網路攝影機、被發現後遭提告的真實案例。<br>建議<b>不要偷裝</b>，用「送禮物」或「安裝保全防小偷」名義正向溝通，設備盡量裝在<b>公共區域（客廳、玄關）</b>，避免直接侵犯臥室、浴室等私密空間。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q8</span><span>長輩已受「監護宣告」，我是監護人就能直接裝嗎？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">可以，法律風險會大幅降低，但仍非毫無限制。受監護宣告、你為<b>監護人（法定代理人）</b>時，為長輩生命安全與健康管理，在其生活環境裝防跌雷達或定位器屬「<b>正當理由</b>」，不構成妨害秘密罪。<br>但兩條紅線不能踩：①<b>比例原則</b>——絕不能把長輩私密畫面上傳公開網路；②<b>家族共識</b>——實務上常是「手足吵架」，其他兄弟姊妹可能以「你裝監控侵害隱私」為由聲請撤換監護人。建議<b>家庭會議留下紀錄</b>，告知全家這是為照護安全。</span></div></div>
+    </div>
+
+    <div class="qa-theme">四、政府補助與維運成本</div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q9</span><span>預防走失 GPS，只有身障輔具有補助？長照（1966）有嗎？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">有，現在<b>長照與身障兩邊都可以申請</b>！過去個人衛星定位器主要在身障輔具補助（需身障證明）；現在為因應失智長輩需求，<b>長照輔具補助（1966）也已納入</b>。只要長輩年滿 65 歲，經長照中心或輔具中心的職能治療師／物理治療師評估，確認有獨立外出能力且有走失之虞（如檢附失智診斷書）即可申請。<br>金額依身分別：<b>一般戶 5,000、中低收入戶 7,500、低收入戶 10,000 元</b>（部分縣市為 4,500／6,750／9,000）。長照、身障雙重身分可<b>擇優申請，相同項目不得重複請領</b>。最快是帶資料到<b>杏一醫療等特約門市</b>請店員連線查資格。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q10</span><span>家裡突然斷電、Wi-Fi 被拔掉，設備會不會就癱瘓？維護費高嗎？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">這是遠距照顧的實務痛點。挑設備時看兩個重點：①<b>具備用電池</b>——斷電時還能撐幾小時；②<b>具斷線通知（Offline Alert）</b>——網路斷線時主動發送<b>推播通知</b>到子女手機，讓你知道老家可能斷電或斷網，立刻打電話或請鄰居過去關切。<br>費用要看清楚有沒有「<b>隱藏成本</b>」：GPS 手錶每月幾百元 SIM 卡月租；部分智慧雲端平台免費試用期過後會收訂閱維護費，都要一併納入預算。</span></div></div>
+    </div>
+    <div class="warn-box">⚠️ 法律相關回應為一般性說明與臨床溝通建議，個案若涉及訴訟或監護權爭議，仍建議諮詢律師或法律扶助。補助金額與資格以各縣市長照管理中心（1966）／輔具中心公告為準。</div>
+  </div>
+</section>
+
+<!-- QA CHEAT SHEET 3 -->
+<section class="slide" id="s7qa3">
+  <div class="slide-inner">
+    <span class="kicker">課後 QA ｜ 現場小抄（3/4）</span>
+    <h2>設備成本、誤報焦慮與緊急應變</h2>
+
+    <div class="qa-theme">五、三大核心實務痛點</div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q11</span><span>買了智慧照護設備，後續每月會不會有高昂月租費？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">設備費用通常分兩種：一是「<b>純硬體買斷</b>」（如藍牙藥盒、跌倒警報拉繩，買了就沒月租）；二是「<b>需傳輸訊號</b>」（如 GPS 定位手錶內建 SIM，每月幾百元電信月租，可挑樂齡或移工的超低資費方案）。<br>2026 年最新好消息：政府已於 <b>2026 年 7 月 1 日</b>推出「<b>智慧科技輔具全租賃補助</b>」新制，離床偵測、智慧照護床、安全看視等高單價設備不必一次買斷，可用「租」的，<b>政府每 3 年最高補助 6 萬元</b>，後續維護與租金負擔大大降低。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q12</span><span>設備常「誤報」，一下跌倒一下沒起床，搞得我整天焦慮？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">剛裝好的前一週是「<b>人機磨合調校期</b>」。誤報太高有兩個調整法：①調整系統「<b>敏感度與延遲時間</b>」——防跌雷達可從「倒地 3 秒就通知」微調為「倒地 <b>15～30 秒</b>仍未起身才通知」，過濾長輩蹲下撿東西；②重新定義「異常」——離床偵測若長輩本來就有夜尿習慣，把「離床 10 分鐘」通報放寬到「離床 30 分鐘」。配合長輩原本作息微調，孝心才不會變成科技焦慮。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q13</span><span>收到緊急警報但人在開會／出差／大半夜，第一時間該找誰？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">數位偵測，是在幫在地的雙手<b>爭取黃金時間</b>。設備上線第一天就要建「<b>緊急應變三人小組</b>」：<br><b>第一順位（數位通知）</b>：外地子女，看畫面或打電話向長輩確認。<br><b>第二順位（在地救援）</b>：住附近的鄰居、大樓保全、里長，或交換過鑰匙的親戚；子女聯絡不上長輩時，立刻請他到現場敲門。<br><b>第三順位（專業長照）</b>：白天找居服員、個案管理師；獨居長輩建議申請地方政府「<b>緊急救援連線系統</b>」，深夜警報響起，24 小時監控中心會立刻派車並聯絡救護車。</span></div></div>
+    </div>
+    <div class="foot">↓ 下一頁：長照 3.0 新科技 4 問（Q14～Q17）↓</div>
+  </div>
+</section>
+
+<!-- QA CHEAT SHEET 4 -->
+<section class="slide" id="s7qa4">
+  <div class="slide-inner">
+    <span class="kicker">課後 QA ｜ 現場小抄（4/4）</span>
+    <h2>長照 3.0 新科技，民眾最想問</h2>
+
+    <div class="qa-theme">六、長照 3.0 新科技話題</div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q14</span><span>7 月上路的「智慧輔具租賃新制」跟原來的補助衝突嗎？能一起申請？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">不能同時請領同一項，它是加碼方案、採「<b>二選一</b>」！舊制長照 2.0 是「<b>購買制</b>」，每 3 年最高 <b>4 萬元</b>，主要買輪椅、助行器、洗澡椅等傳統輔具。今年 7/1 的長照 3.0 新制是「<b>智慧科技輔具全租賃補助</b>」，每 3 年額度提高到最高 <b>6 萬元</b>。<br>若家裡基本輪椅都有了、想升級成智慧床墊、安全看視或 AI 跌倒偵測，就可選新制 6 萬元租賃方案。設備壞了由特約廠商修到好，長輩功能退化還能彈性更換品項，對家屬划算很多。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q15</span><span>家裡請外籍看護，照護 App 都中文看不懂，遠距照護怎麼落實？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">這在臺灣很常見！不要強迫外籍看護操作複雜的中文 App 介面。看護最厲害的科技工具其實是 <b>LINE 與 YouTube</b>。<br>遠距分工：App 與系統後台由<b>外地子女管理</b>（看數據資料、接收異常通知）；看護那端只要把設備設成「<b>聲光提醒</b>」即可——智慧藥盒時間到會嗶嗶聲＋閃紅燈，看護聽到就拿藥給長輩吃。也可把使用方法做成<b>圖卡或短影片放在 LINE</b>，用視覺化、不需文字的方式溝通。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q16</span><span>家裡有孫子、貓狗走來走去，雷達會不會把寵物當成長輩跌倒亂報？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">現在市面上的高階毫米波雷達，多已具備 <b>AI 身形辨識與高度過濾</b>。系統會偵測「<b>體積體型</b>」與「<b>移動軌跡</b>」——貓狗在地上爬、小孩跑過的高度，跟成人站立突然轉為平躺跌倒的軌跡完全不同，可有效過濾寵物或幼童。安裝時注意硬體設定：高度依原廠建議（如裝在 <b>2～2.5 公尺</b>高牆面），並避開冷氣出風口或會擺動的窗簾，就能把誤報率降到最低。</span></div></div>
+    </div>
+    <div class="qa-item" onclick="toggleCase(this)">
+      <div class="qa-head"><span class="qn">Q17</span><span>中重度失智長輩半夜「遊走」自己開門外出、又會丟掉手錶，怎麼防？</span><span class="chev">⌄</span></div>
+      <div class="qa-body"><div class="qa-body-inner"><span class="ans">針對中重度夜間遊走，與其在外面大海撈針定位，不如<b>第一時間鎖住防線</b>。實務最推薦「<b>門磁感測器</b>」搭配「<b>電子圍籬</b>」：在大門或玄關裝感測器，設定半夜 11 點到清晨 6 點之間大門一被開啟，外地子女手機或在地照顧者房間就立刻發出<b>高分貝警報</b>。也可在客廳玄關裝非影像雷達，長輩一經過就自動開燈並通知，在他還沒走出家門前就引導回房間。</span></div></div>
+    </div>
   </div>
 </section>
 
